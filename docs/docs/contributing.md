@@ -33,7 +33,7 @@ A couple of principles:
 
 The user command script does not carry out any of Cider's "business logic", it just works out whether it should execute code in `⎕SE` or in `#`, and then calls functions in either `⎕se.Cider.##.UC` (the default) or in `#.Cider.Cider.UC` (trace & develop).
 
-I> See the discussion of the `DEVELOPMENT` variable further down for details
+> See the discussion of the `DEVELOPMENT` variable further down for details
 
 While the API functions live in `⎕SE.Cider` (and call stuff in `⎕SE.Cider.##`), the user command functions live in `⎕SE.Cider.##.UC`.
 
@@ -49,7 +49,7 @@ In the unlikely event that the user command script needs changing anyway, Link w
 
 in a dyalog configuration file, otherwise changes are **_not_** recorded. 
 
-I> Regarding `DYALOGSTARTUPKEEPLINK`, see the "Installation and Configuration Guide" of Dyalog for your OS for details.
+> Regarding `DYALOGSTARTUPKEEPLINK`, see the "Installation and Configuration Guide" of Dyalog for your OS for details.
 
 Make sure that you change the script either in the location it is started from or in the project, but not both. When you create a new version of Cider it will check whether the two versions are identical (when no action is taken) or not, when it will suggest to copy over the version that carries the latest changes.
 

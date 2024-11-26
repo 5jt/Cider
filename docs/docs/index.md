@@ -12,13 +12,13 @@ Cider attempts to fill that gap. A Cider project requires a configuration file n
 
 The two most important commands of Cider's user commands are `CreateProject` and `OpenProject`.
 
-I> Note that in this document names stemming from the Cider configuration file are shown `like this`.
+**NB** Note that in this document names stemming from the Cider configuration file are shown `like this`.
 
 Note that a Cider project may or may not contain a single Tatin package. It is **_not_** designed to keep multiple packages. Of course, a project can have multiple Tatin packages as dependencies, that is a different matter.
 
-A> ### Additional features
-A> 
-A> Cider offers more than is outlined here as "the solution", but you need to configure these extra features. See [Global configuration](#) for details.
+> ### Additional features
+> 
+> Cider offers more than is outlined here as "the solution", but you need to configure these extra features. See [Global configuration](#) for details.
 
 ### Requirements
 
@@ -84,13 +84,13 @@ The API is not available yet at this point, but it will become available once a 
 ]Cider.Version
 ```
 
-I> Note that for Dyalog's user command framework to be able to identify Cider's user command script, the folder must be made known to SALT. However, since Cider requires Tatin to be available this must have been done already.
+> Note that for Dyalog's user command framework to be able to identify Cider's user command script, the folder must be made known to SALT. However, since Cider requires Tatin to be available this must have been done already.
 I>
-I> You can check this by issuing the command 
+> You can check this by issuing the command 
 I>
-I> `]SALT.Settings cmddir`
+> `]SALT.Settings cmddir`
 I>
-I> This command lists all folders the user command framework will scan for user commands. The `SessionExtensions/CiderTatin/` folder must be among them, otherwise no Tatin user command would be available.
+> This command lists all folders the user command framework will scan for user commands. The `SessionExtensions/CiderTatin/` folder must be among them, otherwise no Tatin user command would be available.
 
 If that is not good enough for you, follow the instructions provided by the document [Installing And Updating The Tatin Client](https://tatin.dev/Assets/docs/InstallingAndUpdatingTheTatinClient.html#On-setupdyalog "Link to the document on https://tatin.dev") for how to achieve that for Tatin.
 
@@ -134,22 +134,22 @@ You can update Cider to the latest version by issuing the following command:
     
 You must restart Dyalog in order to start using the new version.
 
-A> ### ]Cider.UpdateCider
-A> 
-A> Note that due to a change of the target folder this command will only work when you use it to update version 0.37.1 or later.
-A>
-A> !> ### Versions prior to 0.37.0
-A> => *In earlier versions of Cider the command cannot know about the new target folder and must therefore not be used.*
-A> =>
-A> => For that reason, you are advised to delete the `Cider/` folder from your `MyUCMDs/` folder (which means un-installing it) and then install it into the correct folder; see above.
-A>
-A> !> ### Versions 0.37.1 and 0.37.2
-A> =>
-A> => These versions installed into the new folder but with one level missing, therefore *you must not use* `]CiderUpdateCider`!
-A> =>
-A> => For that reason you are advised to install again into the correct folder. 
-A> =>
-A> => The next time you use `]Cider.UpdateCider` it will remove Cider from the wrong folder.
+> ### ]Cider.UpdateCider
+> 
+> Note that due to a change of the target folder this command will only work when you use it to update version 0.37.1 or later.
+>
+> > ### Versions prior to 0.37.0
+> > *In earlier versions of Cider the command cannot know about the new target folder and must therefore not be used.*
+> >
+> > For that reason, you are advised to delete the `Cider/` folder from your `MyUCMDs/` folder (which means un-installing it) and then install it into the correct folder; see above.
+>
+> > ### Versions 0.37.1 and 0.37.2
+> >
+> > These versions installed into the new folder but with one level missing, therefore *you must not use* `]CiderUpdateCider`!
+> >
+> > For that reason you are advised to install again into the correct folder. 
+> >
+> > The next time you use `]Cider.UpdateCider` it will remove Cider from the wrong folder.
 
 
 #### When updating goes wrong
@@ -243,11 +243,11 @@ With `]Cider.CreateProject` any folder that does not yet host a file `cider.conf
 
 If the folder does not yet exist it will be created. In any case, the folder will be populated with a file `cider.config`.
 
-I> The default config file that is copied into any new project stems from a folder `.cider/` in your home directory. 
-I>
-I> You may change this file and make amendments that suit your needs. 
-I>
-I> However, when a new version of Cider is installed the template config file *might* come with new or renamed or removed properties, and those would not make it into the template file in `.cider/cider.config` in your home directory: watch the release notes for this.
+> The default config file that is copied into any new project stems from a folder `.cider/` in your home directory. 
+>
+> You may change this file and make amendments that suit your needs. 
+>
+> However, when a new version of Cider is installed the template config file *might* come with new or renamed or removed properties, and those would not make it into the template file in `.cider/cider.config` in your home directory: watch the release notes for this.
 
 Starting with version 0.41.0, when Cider writes a config file to disk is adds (to old config files) or updates the Cider version number. The purpose of this is that one can see which version of Cider was used to write the file.
 
@@ -265,19 +265,19 @@ However, when the namespace and source folder are _both not empty_ then the user
 
 If the user answers this question with "No" then an error is thrown.
 
-A> ### Aliases
-A>
-A> If you work frequently on a project, entering the (potentially long) path over and over again can be tiresome.
-A>
-A> In such cases, you can assign an alias like this:
-A>
-A> ```
-A> ]Cider.CreateProject /path/2/project -alias=foo
-A> ```
-A> From now on you can open the project with:
-A> ```
-A> ]Cider.OpenProject [foo]
-A> ```
+> ### Aliases
+>
+> If you work frequently on a project, entering the (potentially long) path over and over again can be tiresome.
+>
+> In such cases, you can assign an alias like this:
+>
+> ```
+> ]Cider.CreateProject /path/2/project -alias=foo
+> ```
+> From now on you can open the project with:
+> ```
+> ]Cider.OpenProject [foo]
+> ```
 
 #### Project configuration parameters
 
@@ -354,7 +354,7 @@ dependencies: {
 }
 ```
 
-I> You may add your own sub-keys in addition to "tatin", but Cider will ignore them: you have to put them to good use yourself.
+> You may add your own sub-keys in addition to "tatin", but Cider will ignore them: you have to put them to good use yourself.
 
 ###### dependencies_dev
 
@@ -513,11 +513,11 @@ Note that the names are not case sensitive; for example, whether the value for `
 
 In case a setting in `SYSVARS` cannot be used for assigning a system variable, a warning message will be printed to the session.
 
-A> ### System variables
-A>
-A> Feel free to save system variables in files like `⎕IO.apla` in your source folder.
-A>
-A> That's another way to make sure that system variables are set as early as possible, because LINK will establish the values of system variables defined in files before it attempts to bring code into the workspace.
+> ### System variables
+>
+> Feel free to save system variables in files like `⎕IO.apla` in your source folder.
+>
+> That's another way to make sure that system variables are set as early as possible, because LINK will establish the values of system variables defined in files before it attempts to bring code into the workspace.
 
 #### Bringing the code into the workspace
 
@@ -531,11 +531,11 @@ Note that from now on we will refer to:
 
 By default, a Link is established between the root of the project and the folder. When you intend to work on the project (read: change the code), then this is the obvious thing to do.
 
-A> ### LINK's `watch` parameter
-A>
-A> By default, Cider sets the `watch` parameter to "both", meaning that changes in the workspace via the editor are saved to disk, and any changes on disk are brought into the workspace.
-A>
-A> You may set `watch` to "ns" or "dir" instead. Refer to the LINK documentation for details.
+> ### LINK's `watch` parameter
+>
+> By default, Cider sets the `watch` parameter to "both", meaning that changes in the workspace via the editor are saved to disk, and any changes on disk are brought into the workspace.
+>
+> You may set `watch` to "ns" or "dir" instead. Refer to the LINK documentation for details.
 
 However, if you want to bring in the code as part of, say, an automated build process, then you don't want to establish a Link, you just want to bring the code into the workspace. This can be achieved by specifying the `-import` flag.
 
@@ -543,13 +543,13 @@ However, if you want to bring in the code as part of, say, an automated build pr
 
 Cider now checks whether any of the Tatin installation folders --- as noted on the `dependencies` and `dependencies_dev` properties --- is empty apart from a dependency file and a build list.
 
-A> ### Why this may happen
-A>
-A> Since version 0.21.0 Cider itself has an enhanced `.gitignore` file: it defines that the contents of the Tatin installation folder(s) but the two definition files shall be ignored. Only these two definition files are therefore uploaded to GitHub, but _none of the packages_.
-A>
-A> The effect of this is that when somebody downloads the Cider project now _the Tatin installation folder contains just those two definition files but no packages!_
-A>
-A> Note that this is in line with the vast majority of other package managers.
+> ### Why this may happen
+>
+> Since version 0.21.0 Cider itself has an enhanced `.gitignore` file: it defines that the contents of the Tatin installation folder(s) but the two definition files shall be ignored. Only these two definition files are therefore uploaded to GitHub, but _none of the packages_.
+>
+> The effect of this is that when somebody downloads the Cider project now _the Tatin installation folder contains just those two definition files but no packages!_
+>
+> Note that this is in line with the vast majority of other package managers.
 
 In case a Tatin installation folder defined in the Cider config file does not contain any packages but the two definition files, the user will be asked whether she wants to re-install the packages.
 
@@ -571,13 +571,13 @@ See the config properties `dependencies` and `dependencies_dev` for details.
 
 Your application or tool might depend on a NuGet[^nuget] package. By assigning a folder hosting NuGet packages to the `nuget` sub-key in `dependencies` you can make sure that Cider will load those installed packages into the root of your project or the assigned sub-namespace.
 
-!> On NuGet packages
-=>
-=> Note that for the time being the ability to load NuGet packages is most useful for loading your own NuGet packages written in C#.
-=>
-=> Beyond that, it depends on whether the package uses [generics](https://learn.microsoft.com/en-us/dotnet/standard/generics/). Many packages do, and that makes them unusable for the time being, because Dyalog's .NET interface does not support generics right now.
-=>
-=> However, this restriction of the .NET interface is likely to be lifted in a future release.
+> On NuGet packages
+>
+> Note that for the time being the ability to load NuGet packages is most useful for loading your own NuGet packages written in C#.
+>
+> Beyond that, it depends on whether the package uses [generics](https://learn.microsoft.com/en-us/dotnet/standard/generics/). Many packages do, and that makes them unusable for the time being, because Dyalog's .NET interface does not support generics right now.
+>
+> However, this restriction of the .NET interface is likely to be lifted in a future release.
 
 See the config property `dependencies` details.
 
@@ -791,43 +791,4 @@ An example:
 [^link]: _LINK_ is a tool designed to bring APL code into the workspace and keep it in sync with the files the code came from; see <https://github.com/dyalog/Link> and <https://dyalog.github.io/link>
 
 [^load_tatin_pkgs]: Strictly speaking only references to the packages are injected into your application or tool. The actual packages are loaded into either `#._tatin` or `⎕SE._tatin`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

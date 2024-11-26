@@ -347,24 +347,21 @@ For every install folder these pieces of information are listed:
 
 Opens a project means carrying out the following actions:
 
-1. Creating the `projectSpace` (namespace) in `parent` if it does not already exist
-
-   From here on we refer to this as the _root of the project_.
-2. Setting the system variables `⎕IO` and `⎕ML` in the root of the project
-3. Bringing all code and variables into the root of the project
-4. Loading all Tatin packages from the Tatin installation folders defined by `dependencies:tatin` and `dependencies_dev:tatin`
-4. Loading all NuGet packages from the NuGet installation folder defined by `dependencies:nuget`
-5. Injecting a namespace `CiderConfig` into the root of the project and populating it with the contents of the configuration file as an APL array
-6. Injecting a namespace `TatinVars` into the root of the project, and a ref pointing to that `TatinVars` (with the same name) in case the optional parameter "tatinVars" in the Cider Config section `CIDER` is defined and points to a sub-namespace in the project's root.
-7. Possibly changing the current directory to the project path if this is the first and only Cider project
-7. Adding a variable `HOME` to `CiderConfig` that carries a path to where the project was loaded from
-8. Executing the project-specific function noted on `init`, usually to initialize the project
-9. Executing a non-project-specific function defined in Cider's own configuration file
-
-   This can be used for carrying out the same user-specific actions after a project was opened.
-
+1.  Creating the `projectSpace` (namespace) in `parent` if it does not already exist.
+    From here on we refer to this as the _root of the project_.
+2.  Setting the system variables `⎕IO` and `⎕ML` in the root of the project
+3.  Bringing all code and variables into the root of the project
+4.  Loading all Tatin packages from the Tatin installation folders defined by `dependencies:tatin` and `dependencies_dev:tatin`
+4.  Loading all NuGet packages from the NuGet installation folder defined by `dependencies:nuget`
+5.  Injecting a namespace `CiderConfig` into the root of the project and populating it with the contents of the configuration file as an APL array
+6.  Injecting a namespace `TatinVars` into the root of the project, and a ref pointing to that `TatinVars` (with the same name) in case the optional parameter "tatinVars" in the Cider Config section `CIDER` is defined and points to a sub-namespace in the project's root.
+7.  Possibly changing the current directory to the project path if this is the first and only Cider project
+7.  Adding a variable `HOME` to `CiderConfig` that carries a path to where the project was loaded from
+8.  Executing the project-specific function noted on `init`, usually to initialize the project
+9.  Executing a non-project-specific function defined in Cider's own configuration file
+    This can be used for carrying out the same user-specific actions after a project was opened.
 10. Checking for a variable `ToDo` in the root of the project, and putting it on display (with `⎕ED`) in case it exists
-11. Checking the Git status of the project, if it is managed byGit
+11. Checking the Git status of the project, if it is managed by Git
 
 `OpenProject` requires on of the following two options as right argument:
 
@@ -418,10 +415,9 @@ By default this is an empty numeric vector (`⍬`), meaning that the user will b
 
 Instead one can set this parameter to these values:
 
-
-| 0 | Do not check at all
-| 1 | Check and report findings but prompt for updating
-| 2 | Check and update without consulting the user
+    0 | Do not check at all
+    1 | Check and report findings but prompt for updating
+    2 | Check and update without consulting the user
 
 
 ### parent
@@ -482,14 +478,14 @@ Other settings of `watch` will result in an error.
 
 Note that `CreateOpenParms` will assign a `0` to `watch. That allows recognizing whether the user has set this; eventually 0 will become "both", the default.
 
-A> ### `watch←'both'|'dir'`
-A>
-A> In order to detect changes on the file system Link uses a File System Watcher, something that is available only under Windows.
-A> Link uses APL threads for this.
-A>
-A> When you trace through your code, or set a stop vector, and have "Pause on Error" in the session's "Threads" menu ticked, any handler associated with those threads will also stop.
-A>
-A> This imposes a danger because those handlers set a Hold under some circumstances, and depending on your actions this might result in a DEADLOCK: Dyalog would appear to hang until you issue a strong interrupt via the session's system menu item.
+> ### `watch←'both'|'dir'`
+>
+> In order to detect changes on the file system Link uses a File System Watcher, something that is available only under Windows.
+> Link uses APL threads for this.
+>
+> When you trace through your code, or set a stop vector, and have "Pause on Error" in the session's "Threads" menu ticked, any handler associated with those threads will also stop.
+>
+> This imposes a danger because those handlers set a Hold under some circumstances, and depending on your actions this might result in a DEADLOCK: Dyalog would appear to hang until you issue a strong interrupt via the session's system menu item.
 
 
 ## ProjectConfig
