@@ -1,1 +1,42 @@
-site_name: My Docs
+site_name: Cider User Guide
+repo_url: https://github.com/aplteam/Cider
+repo_name: aplteam/Cider
+
+theme:
+  favicon: 'img/cider-logo.png'
+  logo: 'img/cider-logo.svg'
+  features:
+    - content.tabs.link
+    - navigation.instant
+    - navigation.sections
+    # - navigation.tabs
+  name: material
+
+extra:
+  version:
+    provider: mike
+
+extra_css:
+  - style/main.css
+  - style/admonition-ucmdhelp.css
+
+plugins:
+  - search
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.mark
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tilde

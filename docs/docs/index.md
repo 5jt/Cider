@@ -34,7 +34,7 @@ Cider relies on the [Tatin package manager](https://github.com/aplteam/Tatin "Li
 
 If Tatin is not in `⎕SE` but recognized as a user command then Cider will attempt to load it by executing the user command `]Tatin.Version` which will implicitly load the Tatin API into `⎕SE`.
 
-I> Note that Tatin will check whether Cider is available, and if so cooperate with it. However, Cider is not a requirement for using Tatin.
+> Note that Tatin will check whether Cider is available, and if so cooperate with it. However, Cider is not a requirement for using Tatin.
 
 ### Installation
 

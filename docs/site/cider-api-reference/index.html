@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Cider's API --- Syntax Reference - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Cider User Guide</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Cider's API --- Syntax Reference</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../contributing/" class="nav-link">Contributing</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../release-notes/" class="nav-link">Release Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../contributing/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ciders-api-syntax-reference" class="nav-link">Cider's API --- Syntax Reference</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#addalias" class="nav-link">AddAlias</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#addnugetdependencies" class="nav-link">AddNuGetDependencies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#addtatindependencies" class="nav-link">AddTatinDependencies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#closeproject" class="nav-link">CloseProject</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#createcreateprojectparms" class="nav-link">CreateCreateProjectParms</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#createopenparms" class="nav-link">CreateOpenParms</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#createproject" class="nav-link">CreateProject</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#dropalias" class="nav-link">DropAlias</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getcideraliasfilecontent" class="nav-link">GetCiderAliasFileContent</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getcideraliasfilename" class="nav-link">GetCiderAliasFilename</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getciderglobalconfigfilecontent" class="nav-link">GetCiderGlobalConfigFileContent</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getciderglobalconfigfilename" class="nav-link">GetCiderGlobalConfigFilename</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getciderglobalconfighomefolder" class="nav-link">GetCiderGlobalConfigHomeFolder</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getmyucmdsfolder" class="nav-link">GetMyUCMDsFolder</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getnugetdependencies" class="nav-link">GetNuGetDependencies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getprogramfilesfolder" class="nav-link">GetProgramFilesFolder</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#gettatindependencies" class="nav-link">GetTatinDependencies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#hasdotnet" class="nav-link">HasDotNet</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#listnugetdependencies" class="nav-link">ListNuGetDependencies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#listopenprojects" class="nav-link">ListOpenProjects</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#listtatindependencies" class="nav-link">ListTatinDependencies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#openproject" class="nav-link">OpenProject</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#projectconfig" class="nav-link">ProjectConfig</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#readprojectconfigfile" class="nav-link">ReadProjectConfigFile</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#writeprojectconfigfile" class="nav-link">WriteProjectConfigFile</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#version" class="nav-link">Version</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="ciders-api-syntax-reference">Cider's API --- Syntax Reference</h1>
+<p>Although the API functions are similar to their user command equivalents, they are not identical. Also, the API offers more functions.</p>
+<p>While for the user commands the help provided by the <code>-??</code> syntax is sufficient, this document deals with the API.</p>
+<p>Note that while the Cider package (code) is loaded into <code>⎕SE._Cider</code>, the API is available via <code>⎕SE.Cider</code>. The user is supposed to call functions in <code>⎕SE.Cider</code> but not in <code>⎕SE.Cider_</code>. </p>
+<p>The API functions are ordered alphabetically.</p>
+<h2 id="addalias">AddAlias</h2>
+<pre><code>{r}←AddAlias(folder alias)
+</code></pre>
+<p>Takes two parameters via the right argument:</p>
+<ol>
+<li>Fully qualified folder hosting a project</li>
+<li>Alias name</li>
+</ol>
+<p>Actions taken:</p>
+<ul>
+<li>
+<p>If the alias is not already in use and the folder exists the function adds the definition to the file returned by <code>GetAliasFilename</code>. </p>
+</li>
+<li>
+<p>If the alias is already in use and the folder exists the function asks for confirmation before overwriting the definition of that alias in the file returned by <code>GetAliasFilename</code>, effectively changing the alias.</p>
+</li>
+</ul>
+<p>Returns an empty vector in case of success and an error message otherwise.</p>
+<h2 id="addnugetdependencies">AddNuGetDependencies</h2>
+<pre><code>list←AddNuGetDependencies(packages projectFolder)
+</code></pre>
+<p>Installs NuGet packages in the (single) NuGet dependency folder defined in the projects configuration file.</p>
+<p>Requires two arguments:</p>
+<ol>
+<li>
+<p>One or more packages as either a nested vector of character vectors or a comma-separated simple character vector</p>
+</li>
+<li>
+<p>A path to a project or a Cider alias</p>
+</li>
+</ol>
+<p>Note that NuGet package names are not case sensitive when they are loaded, meaning that you can load <code>Clock</code> by the name <code>clock</code>. However, the correct name is returned, and required for using a package.</p>
+<h2 id="addtatindependencies">AddTatinDependencies</h2>
+<pre><code>r←AddTatinDependencies(packageIDs projectFolder dev)
+</code></pre>
+<p>Installs Tatin packages in one of the Tatin dependency folders defined in the projects configuration file, by default in <code>dependencies.tatin</code>.</p>
+<p>Requires three arguments:</p>
+<ol>
+<li>
+<p>One or more packages as either a nested vector of character vectors or a comma-separated simple character vector</p>
+</li>
+<li>
+<p>A path to a project or a Cider alias</p>
+</li>
+<li>
+<p>A flag (<code>dev</code>) that decides which folder should be used for the installation</p>
+</li>
+<li>
+<p>0 = the folder the config parameter <code>dependencies</code> points to </p>
+</li>
+<li>1 = the folder the config parameter <code>dependencies_dev</code> points to </li>
+</ol>
+<h2 id="closeproject">CloseProject</h2>
+<pre><code>r←{x} CloseProject projects
+</code></pre>
+<p>Takes one ore more projects and closes them (read: break the link).</p>
+<p>The right argument must be either a simple character vector or a nested vector of character vectors. </p>
+<p>The projects can be specified as fully qualified namespace names, as aliases or as project paths, or a mixture of them.</p>
+<p>Via the optional left argument the user can specify two arguments:</p>
+<ul>
+<li>A list of projects as returned by <code>ListProjects</code>.</li>
+</ul>
+<p>Usually the user won't specify such a list, but the user command may.</p>
+<ul>
+<li>A flag <code>checks</code> that defaults to 1, meaning that potentially checks are performed. See <code>CheckForDropboxConflicts</code> in Cider's <em>User Guide &gt; Global configuration &gt; CheckForDropboxConflicts</em> for an example.</li>
+</ul>
+<p>You may suppress such checks by passing a 0 as left argument.</p>
+<p>You may specify any of them or both, in any order.</p>
+<p>Returns the number of projects closed as result.</p>
+<h2 id="createcreateprojectparms">CreateCreateProjectParms</h2>
+<pre><code>parms←{parms} CreateCreateProjectParms folder
+</code></pre>
+<p>An ambivalent function that returns a namespace with default parameters required by the <a href="#"><code>CreateProject</code></a>function. </p>
+<p>The mandatory right argument must be the folder where the project lives.</p>
+<p>The optional left argument might be a namespace holding some of the parameters. The values are copied then over.</p>
+<p>These are the parameters:</p>
+<pre><code> acceptConfig    0         
+ folder          /path/2/project
+ ignoreUserExec  0         
+ namespace       '' 
+</code></pre>
+<p><code>namespace</code> defaults to the last part in <code>folder</code>.</p>
+<p>For the meaning of the other parameters refer to <code>]Cider.CreatePoject -??</code>.</p>
+<h2 id="createopenparms">CreateOpenParms</h2>
+<pre><code>parms←CreateOpenParms y
+</code></pre>
+<p>A monadic function that returns a namespace with default parameters required by the <code>OpenProject</code> function. The right argument might be either an empty vector (which is ignored) or a namespace holding some of the parameters. In the latter case the values are copied over.</p>
+<pre><code> alias                 ''      
+ batch                 0
+ checkPackageVersions  ⍬
+ folder                  ''  
+ ignoreUserExec        0
+ importFlag            0
+ noPkgLoad             0
+ parent                '#' 
+ projectSpace          ''  
+ quietFlag             0 
+ suppressInit          0
+ verbose               0
+ watch                 ['ns'|'both']  ⍝ depending on the availability of .NET 
+</code></pre>
+<p>This is useful for creating a namespace with the defaults, set required parameters (at least <code>folder</code> and <code>projectSpace</code>), make amendments and pass the namespace as argument to <code>OpenProject</code>.</p>
+<h2 id="createproject">CreateProject</h2>
+<pre><code>r←CreateProject parms
+</code></pre>
+<p><code>parms</code> is typically create by calling <a href="#"><code>CreateCreateProjectParms</code></a>. </p>
+<p>This function can be used to create a project under program control.</p>
+<h2 id="dropalias">DropAlias</h2>
+<pre><code>{successFlag}←DropAlias alias
+</code></pre>
+<p>Takes an alias and removes it.</p>
+<h2 id="getcideraliasfilecontent">GetCiderAliasFileContent</h2>
+<pre><code>r←{filename} GetCiderAliasFileContent dummy
+</code></pre>
+<p>Monadic function that returns the contents of the file returned by the <code>GetCiderAliasFilename</code> function as an APL array:</p>
+<pre><code>      ⎕SE.Cider.GetAliasFileContent
+ cider  C:/T/Projects/Dyalog/Cider 
+</code></pre>
+<p>Every record of that file contains two pieces of information: an alias and its associated path. The file might be empty.</p>
+<h2 id="getcideraliasfilename">GetCiderAliasFilename</h2>
+<pre><code>filename←GetCiderAliasFilename
+</code></pre>
+<p>Niladic function that returns the path to the file that is used by Cider to manage alias names and their paths.</p>
+<h2 id="getciderglobalconfigfilecontent">GetCiderGlobalConfigFileContent</h2>
+<pre><code>r←GetCiderGlobalConfigFileContent
+</code></pre>
+<p>Reads Cider's global configuration file and returns a namespace with the settings if there is such a file. If there  is not, <code>⍬</code> is returned.</p>
+<p>The global configuration file is optional. If it exists it will hold user preferences.</p>
+<h3 id="executeafterprojectopen">ExecuteAfterProjectOpen</h3>
+<p>The user may specify a fully qualified function name, usually situated in <code>⎕SE</code>. This function will then be called after a project (any project!) was opened by Cider. </p>
+<p>This can be used to, say, check the status of the project on GitLab or a similar platform, since Cider considers only GitHub, and requires the package <a href="https://github.com/aplteam/APLGit2" title="Link to APLGit2 on GitHub">APLGit2</a> for this.</p>
+<p>This setting defines the same function for all your Cider projects, which is why it is not part of the file <code>cider.config.template</code> but defined in Cider's global config file.</p>
+<h2 id="getciderglobalconfigfilename">GetCiderGlobalConfigFilename</h2>
+<pre><code>filename←GetCiderGlobalConfigFilename
+</code></pre>
+<p>Returns the name of Cider's global configuration file.</p>
+<h2 id="getciderglobalconfighomefolder">GetCiderGlobalConfigHomeFolder</h2>
+<pre><code>folder←GetCiderGlobalConfigHomeFolder
+</code></pre>
+<p>Returns the folder that hosts Cider's global configuration file.</p>
+<p>On Windows, this is typically <code>C:/Users/&lt;⎕AN&gt;/.cider/config.json</code></p>
+<h2 id="getmyucmdsfolder">GetMyUCMDsFolder</h2>
+<pre><code>r←GetMyUCMDsFolder
+</code></pre>
+<p>Niladic function that returns the path to the <code>MyUCMDs/</code> folder.</p>
+<p>Note that this folder is created under Windows by the Dyalog installation routine, but not on other platforms.</p>
+<h2 id="getnugetdependencies">GetNuGetDependencies</h2>
+<pre><code>r←name GetNuGetDependencies config
+</code></pre>
+<p>Takes a namespace generated from a Cider project's configuration file as right argument and either "development" of "development_dev" as left argument.</p>
+<p>Returns either the value of <code>nuget</code> in the given branch or an empty vector if <code>nuget</code> is not defined.</p>
+<h2 id="getprogramfilesfolder">GetProgramFilesFolder</h2>
+<pre><code>r←{current}GetProgramFilesFolder postFix
+</code></pre>
+<p>Ambivalent function that returns the path to the Dyalog files folder of either the currently running version of Dyalog or the version agnostic folder, depending on the left argument.</p>
+<p>Examples on Windows:</p>
+<pre><code>      Cider.GetProgramFilesFolder ''
+C:\Users\kai\Documents\Dyalog APL Files             ⍝ Version agnostic
+      Cider.GetProgramFilesFolder 'CiderTatin'
+C:\Users\kai\Documents\Dyalog APL Files/CiderTatin
+      1 Cider.GetProgramFilesFolder ''              ⍝ Version specific
+C:\Users\kai\Documents\Dyalog APL-64 18.2 Unicode Files
+</code></pre>
+<h2 id="gettatindependencies">GetTatinDependencies</h2>
+<pre><code>r←name GetTatinDependencies config
+</code></pre>
+<p>Takes a namespace generated from a Cider project's configuration file as right argument and either "development" of "development_dev" as left argument.</p>
+<p>Returns either the value of <code>tatin</code> in the given branch or an empty vector if <code>tatin</code> is not defined.</p>
+<h2 id="hasdotnet">HasDotNet</h2>
+<pre><code>boolean←HasDotNet
+</code></pre>
+<p>Returns a 1 if either .NET Core or .NET is available and the bridge DLL was successfully loaded and 0 otherwise.</p>
+<h2 id="listnugetdependencies">ListNuGetDependencies</h2>
+<pre><code>r←ListNuGetDependencies projectFolder
+</code></pre>
+<p>Lists all installed NuGet dependencies with "name" and "version".</p>
+<p>Note that there can be only one NuGet installation folder: currently you cannot have NuGet packages for development purposes. This restriction may be lifted in a future release.</p>
+<h2 id="listopenprojects">ListOpenProjects</h2>
+<pre><code>r←ListOpenProjects verboseFlag
+</code></pre>
+<p>Requires a Boolean as right argument ("verbose").</p>
+<p>With 0 it returns a matrix with two columns:</p>
+<pre><code>      ⎕SE.Cider.ListOpenProjects 0
+ #.Cider  /path/to/Cider
+</code></pre>
+<p>With the verbose flag set it returns 4 columns:</p>
+<pre><code>      ⎕SE.Cider.ListOpenProjects 1
+ #.Cider  /path/to/Cider  32  cider 
+</code></pre>
+<p><code>[;1]</code> | Fully qualified project space
+<code>[;2]</code> | Path the project was loaded from
+<code>[;3]</code> | Number of objects belonging to the project
+<code>[;4]</code> | Alias (if any)</p>
+<h2 id="listtatindependencies">ListTatinDependencies</h2>
+<pre><code>r←ListTatinDependencies projectFolder
+</code></pre>
+<p>Until version 0.34.0 this was named <code>ListTatinPackages</code>.</p>
+<p>Lists all dependencies installed in the Tatin installation folders, if any. </p>
+<p>For every install folder these pieces of information are listed:</p>
+<ul>
+<li>The full package ID</li>
+<li>A Boolean indicating whether the package is a principal one or just a dependency</li>
+<li>A URL where the package was loaded from</li>
+</ul>
+<h2 id="openproject">OpenProject</h2>
+<pre><code>(successFlag ∆LOG)←OpenProject y
+</code></pre>
+<p>Opens a project means carrying out the following actions:</p>
+<ol>
+<li>Creating the <code>projectSpace</code> (namespace) in <code>parent</code> if it does not already exist.
+    From here on we refer to this as the <em>root of the project</em>.</li>
+<li>Setting the system variables <code>⎕IO</code> and <code>⎕ML</code> in the root of the project</li>
+<li>Bringing all code and variables into the root of the project</li>
+<li>Loading all Tatin packages from the Tatin installation folders defined by <code>dependencies:tatin</code> and <code>dependencies_dev:tatin</code></li>
+<li>Loading all NuGet packages from the NuGet installation folder defined by <code>dependencies:nuget</code></li>
+<li>Injecting a namespace <code>CiderConfig</code> into the root of the project and populating it with the contents of the configuration file as an APL array</li>
+<li>Injecting a namespace <code>TatinVars</code> into the root of the project, and a ref pointing to that <code>TatinVars</code> (with the same name) in case the optional parameter "tatinVars" in the Cider Config section <code>CIDER</code> is defined and points to a sub-namespace in the project's root.</li>
+<li>Possibly changing the current directory to the project path if this is the first and only Cider project</li>
+<li>Adding a variable <code>HOME</code> to <code>CiderConfig</code> that carries a path to where the project was loaded from</li>
+<li>Executing the project-specific function noted on <code>init</code>, usually to initialize the project</li>
+<li>Executing a non-project-specific function defined in Cider's own configuration file
+    This can be used for carrying out the same user-specific actions after a project was opened.</li>
+<li>Checking for a variable <code>ToDo</code> in the root of the project, and putting it on display (with <code>⎕ED</code>) in case it exists</li>
+<li>Checking the Git status of the project, if it is managed by Git</li>
+</ol>
+<p><code>OpenProject</code> requires on of the following two options as right argument:</p>
+<ul>
+<li>
+<p>A character vector with either a path pointing to a folder that holds a project config file (<code>folder</code>) or an alias defining a project.</p>
+</li>
+<li>
+<p>A parameter space carrying appropriately named variables, typically created by calling <code>CreateOpenParms</code></p>
+</li>
+</ul>
+<p>Must contain a variable <code>folder</code> that is not empty.</p>
+<p>All possible variables are discussed below, with <code>folder</code> being the first one because it is mandatory: without it Cider would not be able to locate a project config file. The remaining ones have appropriate defaults or are taken from the config file, and they are sorted alphabetically.</p>
+<p>What's defined in the parameter space overwrites the value in the config file, though only temporarily.</p>
+<p>The function returns a two-element vector:</p>
+<ul>
+<li>A Boolean, 1 indicating success</li>
+<li>A vector of character vectors with what got printed to the session as well</li>
+</ul>
+<h3 id="folder-mandatory">folder (mandatory)</h3>
+<p>This must be one of:</p>
+<ul>
+<li>A path pointing to a folder that carries a file <code>cider.config</code></li>
+<li>An alias like <code>[aliasname]</code>; see also <code>alias</code></li>
+</ul>
+<p>Note that this must <em>not</em> be empty but it <em>might</em> be <code>./</code> representing the current directory.</p>
+<h3 id="alias">alias</h3>
+<p>The alias under which you might want to access the project in the future.</p>
+<p>Special syntax: if <code>alias</code> is just a <code>.</code> (dot), then the last part of the path becomes the alias. Example:</p>
+<pre><code>p←Cider.CreateOpenParms
+p.folder←'/path/2/projects/foo'
+p.alias←'.'
+⍝ `foo` becomes the (new) alias
+</code></pre>
+<p>If you specify an alias on <code>folder</code> but also on <code>alias</code>, then Cider expects the alias on <code>folder</code> to be defined, and will use that one to open the project. It will then overwrite the former alias with the one defined on <code>alias</code>.</p>
+<h3 id="checkpackageversions">checkPackageVersions</h3>
+<p>This is ignored in case...</p>
+<ul>
+<li>the project does not sport any Tatin installation folder</li>
+<li><a href="#"><code>importFlag</code></a> is 1; no check will take place then anyway</li>
+</ul>
+<p>By default this is an empty numeric vector (<code>⍬</code>), meaning that the user will be asked whether she wants Cider to check all principal packages for later versions, and if there are any found, whether she wants to update those packages. If the project carries more than one package folder the second question is asked independently for each Tatin installation folder.</p>
+<p>Instead one can set this parameter to these values:</p>
+<pre><code>0 | Do not check at all
+1 | Check and report findings but prompt for updating
+2 | Check and update without consulting the user
+</code></pre>
+<h3 id="parent">parent</h3>
+<p>Defaults to <code>#</code> but might as be something like <code>⎕SE</code> or <code>#.Foo.Goo.Boo</code>. However, all namespaces listed must exist.</p>
+<h3 id="projectspace">projectSpace</h3>
+<p>The name of the namespace the project is injected into. If this is empty it is going to be <code>#</code> or <code>⎕SE</code>, depending from where the function was called from.</p>
+<h3 id="flags">Flags</h3>
+<h4 id="ignoreuserexec">ignoreUserExec</h4>
+<p>This flag is ignored in case Cider's own global config file does not define a function on <code>ExecuteAfterProjectOpen</code>, but if there is a fully qualified function name defined, then this flag can be used to prevent the function from being executed at the end of opening a project.</p>
+<h4 id="importflag">importFlag</h4>
+<p>Defaults to 0 meaning that the code is not imported but linked. </p>
+<p>Set this to 1 for Link importing the code without establishing a Link.</p>
+<p>Note that this has implications on how Cider deals with Tatin packages, see there.</p>
+<h4 id="nopkgload">noPkgLoad</h4>
+<p>Defaults to 0, meaning that Cider will load Tatin packages by honoring the config file's <code>dependencies</code> and <code>dependencies_dev</code> parameters. However, there might be circumstances when you do not want packages to be loaded. This can be achieved by setting the <code>noPkgLoad</code> flag to 1.</p>
+<h4 id="quietflag">quietFlag</h4>
+<p>Defaults to 0, meaning that the function prints messages to the session. If this is 1 then no messages are printed but what would have been printed is still returned as second element of the result of the function.</p>
+<h4 id="suppresslx">suppressLX</h4>
+<p>Defaults to 0, meaning that the projects initialisation function (if any) will be executed.</p>
+<p>There might well be situations when you don't want this, therefore you may suppress the execution by setting this to 1.</p>
+<p>An example might be an automated build process: that might need to open the project but without actually initialising it.</p>
+<h3 id="watch">watch</h3>
+<p>Defaults to "both", meaning that changing any APL objects in the workspaces will result in Link updating the corresponding file on disk, and any change on disk will be reflected by changing the workspace.</p>
+<p>You may instead set this to "ns", which forces Link to write changes in the WS to disk but ignore changes on the file system.</p>
+<p>You may also set this to "dir", when changes on the file system will be brought into the WS while changes in the WS are <em>not</em> saved to disk.</p>
+<p>Specify "none" if all changes should be ignored.</p>
+<p>Other settings of <code>watch</code> will result in an error.</p>
+<p>Note that <code>CreateOpenParms</code> will assign a <code>0</code> to `watch. That allows recognizing whether the user has set this; eventually 0 will become "both", the default.</p>
+<blockquote>
+<h3 id="watchbothdir"><code>watch←'both'|'dir'</code></h3>
+<p>In order to detect changes on the file system Link uses a File System Watcher, something that is available only under Windows.
+Link uses APL threads for this.</p>
+<p>When you trace through your code, or set a stop vector, and have "Pause on Error" in the session's "Threads" menu ticked, any handler associated with those threads will also stop.</p>
+<p>This imposes a danger because those handlers set a Hold under some circumstances, and depending on your actions this might result in a DEADLOCK: Dyalog would appear to hang until you issue a strong interrupt via the session's system menu item.</p>
+</blockquote>
+<h2 id="projectconfig">ProjectConfig</h2>
+<pre><code>{r}←ProjectConfig path
+</code></pre>
+<p>Takes a path as <code>⍵</code>.</p>
+<p>Puts the config file found in <code>path</code> on display and allows the user to edit it.</p>
+<p>Asks for permission before writing changes back to file, and performs checks before writing it back to file.</p>
+<h2 id="readprojectconfigfile">ReadProjectConfigFile</h2>
+<pre><code>config←ReadProjectConfigFile projectFolder
+</code></pre>
+<p>This function takes a path to a Cider project as <code>⍵</code> and returns the contents of the config files as a namespace with variables.</p>
+<p><code>path</code> may or may not come the actual filename `cider.config'.</p>
+<p>Note that the function checks whether the sub-keys <code>dependency.tatin</code> and <code>dependency.nuget</code> are defined; if not they are created and the data is written to file.</p>
+<h2 id="writeprojectconfigfile">WriteProjectConfigFile</h2>
+<pre><code>{r}←config WriteProjectConfigFile path
+</code></pre>
+<p>This function takes a path to a Cider project as <code>⍵</code> and a namespace with Cider config variables as <code>⍺</code> and writes it the Cider config file.</p>
+<p><code>path</code> may or may not come the actual filename `cider.config'</p>
+<h2 id="version">Version</h2>
+<pre><code>r←Version
+</code></pre>
+<p><code>Version</code> returns a three-element vector with these pieces of information:</p>
+<p>Returns the version number.</p>
+<p>This can be just <code>1.2.3</code>,  but it may be something like <code>1.2.3-beta-1+113</code></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
