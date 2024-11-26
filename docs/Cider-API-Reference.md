@@ -1,9 +1,3 @@
-[parm]:title             = 'Cider Reference'
-[parm]:numberHeaders     = 2 3 4 5 6
-[parm]:leanpubExtensions = 1
-
-
-
 # Cider's API --- Syntax Reference
 
 Although the API functions are similar to their user command equivalents, they are not identical. Also, the API offers more functions.
@@ -211,7 +205,7 @@ This can be used to, say, check the status of the project on GitLab or a similar
 
 This setting defines the same function for all your Cider projects, which is why it is not part of the file `cider.config.template` but defined in Cider's global config file.
 
-## GetCiderGlobalConfigFilename  
+## GetCiderGlobalConfigFilename
 
 ```
 filename←GetCiderGlobalConfigFilename
@@ -219,7 +213,7 @@ filename←GetCiderGlobalConfigFilename
 
 Returns the name of Cider's global configuration file.
 
-## GetCiderGlobalConfigHomeFolder 
+## GetCiderGlobalConfigHomeFolder
 
 ```
 folder←GetCiderGlobalConfigHomeFolder
@@ -435,7 +429,7 @@ Instead one can set this parameter to these values:
 Defaults to `#` but might as be something like `⎕SE` or `#.Foo.Goo.Boo`. However, all namespaces listed must exist.
 
 
-### projectSpace 
+### projectSpace
 
 The name of the namespace the project is injected into. If this is empty it is going to be `#` or `⎕SE`, depending from where the function was called from.
 

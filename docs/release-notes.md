@@ -1,8 +1,3 @@
-[parm]:title             = 'Cider: Release Notes'
-[parm]:toc               = 2 2
-[parm]:leanpubExtensions = 1
-
-
 # Release Notes
 
 Cider release notes contain information regarding changes that...

@@ -1,10 +1,3 @@
-[parm]:title             = 'Cider User Guide'
-[parm]:leanpubExtensions = 1
-[parm]:numberHeaders     = 2 3 4 5 6
-[parm]:toc               = 2 3 4 5 6
-
-
-
 # Cider User Guide
 
 ## What is Cider for?
@@ -778,7 +771,7 @@ dyalog-NuGet-0.2.1
 
 This shows that the package `APLGit2` requests older versions of `APLTreeUtils2`, `FilesAndDirs` and `CommTools` than Cider would eventually use, information that is not easily available by other means.
 
-### ListNuGetDependencies                                                   
+### ListNuGetDependencies
 
 This lists all installed NuGet dependencies.
 

@@ -1,10 +1,3 @@
-[parm]:title             = 'Contributing'
-[parm]:leanpubExtensions = 1
-[parm]:numberHeaders     = 2 3 4 5 6
-[parm]:toc               = 2 3 4 5 6
-
-
-
 # Contributing
 
 ## Overview
