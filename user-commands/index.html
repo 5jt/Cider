@@ -243,6 +243,25 @@
         
   
   <span class="md-ellipsis">
+    Original API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     API Reference
   </span>
   
@@ -262,7 +281,7 @@
         
   
   <span class="md-ellipsis">
-    Cider User Guide
+    Original User Guide
   </span>
   
 
@@ -672,6 +691,7 @@
 Specify all a command’s arguments <em>before</em> any options, e.g.</p>
 <pre><code>]CIDER.CreateProject path/to/foo path/to/bar -noEdit
 </code></pre>
+<hr />
 <h2 id="add-nuget-dependencies">Add NuGet dependencies</h2>
 <p><em>Add one or more NuGet packages as dependencies</em></p>
 <div class="highlight"><pre><span></span><code>]CIDER.AddNuGetDependencies pkglist [project]
@@ -926,13 +946,45 @@ the command defines in namespace <code>#.myproj</code> the APL objects described
 <p><em>Tries to update Cider</em></p>
 <pre><code>]CIDER.UpdateCider
 </code></pre>
-<p>If a later version of Cider is available,asks whether you want to update to it.</p>
+<p>If a later version is available, Cider asks whether you want to update to it.</p>
 <p>When the update is complete, restart Dyalog, rebuild the user commands, and print the current version.</p>
 <pre><code>      ]UReset
 153 commands reloaded
       ]CIDER.Version
 0.44.0+835
 </code></pre>
+<div class="admonition danger">
+<p class="admonition-title">Do not use the command for versions prior to 0.37.3</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Versions 0.37.1 and 0.37.2</label><label for="__tabbed_1_2">Versions prior to 0.37.0</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>These versions installed into the new folder but with one level missing.</p>
+<p><a href="../get-started/#install">Reinstall Cider</a>.</p>
+<p>The next time you use <code>]CIDER.UpdateCider</code> it will remove Cider from the wrong folder.</p>
+</div>
+<div class="tabbed-block">
+<p>Uninstall: delete the <code>Cider/</code> folder from your <code>MyUCMDs/</code> folder.</p>
+<p><a href="../get-started/#install">Reinstall Cider</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Troubleshooting</strong></p>
+<p>If the update process fails, calling it again rarely helps. You need an escape route.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Dyalog 19.0 and later</label><label for="__tabbed_2_2">Dyalog 18.2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Execute <code>]DeActivate tatin</code> to remove Cider.</li>
+<li>Execute <code>]Activate cider</code> to restore the version of Cider your installation originally came with.</li>
+<li>Execute <code>]Cider.UpdateCider</code> to try to update to the latest version.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>Uninstall and then install Cider again.</p>
+</div>
+</div>
+</div>
 <h2 id="version">Version</h2>
 <pre><code>]CIDER.Version
 </code></pre>
