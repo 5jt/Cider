@@ -710,18 +710,17 @@
 Specify all a command’s arguments <em>before</em> any options, e.g.</p>
 <pre><code>]CIDER.CreateProject path/to/foo path/to/bar -noEdit
 </code></pre>
+<p>Command options affect only the command and leave the project and global configurations unchanged.</p>
 <hr />
 <h2 id="add-nuget-dependencies"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Add NuGet dependencies</h2>
 <p><em>Add one or more NuGet packages as dependencies</em></p>
 <div class="highlight"><pre><span></span><code>]CIDER.AddNuGetDependencies pkglist [project]
 </code></pre></div>
 <p>Where</p>
-<dl>
-<dt><code>pkglist</code></dt>
-<dd>is a comma-separated list of NuGet packages to be installed</dd>
-<dt><code>project</code> (optional)</dt>
-<dd>is either a project alias or the filepath of a project folder</dd>
-</dl>
+<ul>
+<li><code>pkglist</code> is a comma-separated list of NuGet packages to be installed</li>
+<li><code>project</code> (optional) is either a project alias or the path of a project folder</li>
+</ul>
 <p>Cider registers the listed dependencies in the project.</p>
 <p>If <code>project</code> is omitted, Cider uses the one open project or, if you have more than one open, asks you which.</p>
 <p>If the project’s config file does not specify a NuGet dependency folder, you are offered the config file to edit.</p>
@@ -735,12 +734,10 @@ Specify all a command’s arguments <em>before</em> any options, e.g.</p>
 <div class="highlight"><pre><span></span><code>]CIDER.AddTatinDependency pkglist [project]
 </code></pre></div>
 <p>Where</p>
-<dl>
-<dt><code>pkglist</code></dt>
-<dd>is a comma-separated list of Tatin packages to be installed</dd>
-<dt><code>project</code> (optional)</dt>
-<dd>is either a project alias or the filepath of a project folder</dd>
-</dl>
+<ul>
+<li><code>pkglist</code> is a comma-separated list of Tatin packages to be installed</li>
+<li><code>project</code> (optional) is either a project alias or the path of a project folder</li>
+</ul>
 <p>Cider registers the listed dependencies in the project.</p>
 <p>If <code>project</code> is omitted, Cider uses the one open project or, if you have more than one open, asks you which.</p>
 <p>If the project’s config file does not specify a Tatin dependency folder, you are offered the config file to edit.</p>
@@ -759,7 +756,7 @@ Specify all a command’s arguments <em>before</em> any options, e.g.</p>
 <p>If <code>projects</code> is omitted, Cider uses the one open project or, if you have more than one open, asks you which.</p>
 <p>You can specify a project as</p>
 <ul>
-<li>a fully qualified namespace name</li>
+<li>a fully qualified namespace</li>
 <li>a project alias</li>
 <li>a filepath</li>
 </ul>
@@ -769,7 +766,11 @@ Otherwise attempts to close projects are reported in detail.</p>
 <p><strong>Options</strong></p>
 <dl>
 <dt><code>-fast</code></dt>
-<dd>Use this to close without performing any checks. (See global config parameter <code>CheckForDropboxConflicts</code>.)</dd>
+<dd>
+<p>Close project without performing any checks. </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M495.9 166.6c3.2 8.7.5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4l-55.6 17.8c-8.8 2.8-18.6.3-24.5-6.8-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4c-1.1-8.4-1.7-16.9-1.7-25.5s.6-17.1 1.7-25.4l-43.3-39.4c-6.9-6.2-9.6-15.9-6.4-24.6 4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2 5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8 8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg></span>
+<a href="../configuration/#checkfordropboxconflicts"><code>CheckForDropboxConflicts</code></a></p>
+</dd>
 </dl>
 <h2 id="config"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Config</h2>
 <p><em>Display or edit Cider’s global configuration</em></p>
@@ -800,14 +801,12 @@ Otherwise attempts to close projects are reported in detail.</p>
 <pre><code>]CIDER.CreateProject [folder] [project-namespace]
 </code></pre>
 <p>Where</p>
-<dl>
-<dt><code>folder</code> (optional)</dt>
-<dd>is a path to a folder that is empty or does not exist</dd>
-<dt><code>project-namespace</code> (optional)</dt>
-<dd>is a namespace in the active workspace to be linked to the project</dd>
-</dl>
+<ul>
+<li><code>folder</code> (optional) is a path to a folder that is empty or does not exist</li>
+<li><code>project-namespace</code> (optional) is a namespace in the active workspace to be linked to the project</li>
+</ul>
 <p>Cider initialises <code>folder</code> as a project (creating it if necessary), links it to <code>project-namespace</code>, and offers the project configuration for editing.</p>
-<p>Finally Cider attempts to open the new project.                                                         </p>
+<p>Finally Cider offers to open the new project.                                                         </p>
 <p><strong>Project folder</strong></p>
 <p>If <code>folder</code> is omitted, Cider asks you to confirm you want to use the current working directory.</p>
 <p>If <code>folder</code> does not exist, Cider creates it.</p>
@@ -830,9 +829,9 @@ Otherwise attempts to close projects are reported in detail.</p>
 <dt><code>-alias=</code></dt>
 <dd>Remember the specified string as an alternative to the project folder filepath when opening the project. Aliases are not case sensitive.</dd>
 <dt><code>-batch</code></dt>
-<dd>Open the newly created project without asking for confirmation.</dd>
+<dd>Open the new project without asking for confirmation.</dd>
 <dt><code>-ignoreUserExec</code></dt>
-<dd>On this occasion, open the project without executing the user function defined in Cider’s config file.</dd>
+<dd>Open the project without executing the <a href="../configuration/#executeafterprojectopen">user function</a> specified in the global config.</dd>
 <dt><code>-noEdit</code></dt>
 <dd>Do not offer the configuration for editing.</dd>
 </dl>
@@ -854,7 +853,7 @@ Otherwise attempts to close projects are reported in detail.</p>
 <dt><code>-prune</code></dt>
 <dd>Delete aliases whose folders cannot be found. (Ask me first for confirmation.)</dd>
 <dt><code>-scan=</code></dt>
-<dd>Scan the specified folder for projects and let me pick which I want added as aliases.</dd>
+<dd>Scan the specified folder for projects and ask me which to add as aliases.</dd>
 </dl>
 <h2 id="list-nuget-dependencies"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> List NuGet dependencies</h2>
 <p><em>List NuGet packages installed as dependencies</em></p>
@@ -885,7 +884,7 @@ The user command help says `folder` can be specified as an alias. Appears not to
 <p><strong>Options</strong></p>
 <dl>
 <dt><code>-full</code></dt>
-<dd>Print a hierarchical report on all dependencies. This does not give what is actually used, but what the packages themselves require. (Due to minimum version selection they might end up using a later version.) This can be useful to figure out why a particular (typically old) package is required.</dd>
+<dd>Print a hierarchical report on all dependencies. This does not give what is actually used, but what the packages themselves require. (Due to minimum version selection they might end up using a later version.) This can help show why a particular (typically old) package is required.</dd>
 <dt><code>-raw</code></dt>
 <dd>Print dependency data unformatted.</dd>
 </dl>
@@ -893,7 +892,7 @@ The user command help says `folder` can be specified as an alias. Appears not to
 <p><em>Print the expression that builds a new version of the project</em></p>
 <pre><code>]CIDER.Make [project]
 </code></pre>
-<p>Where <code>project</code> is the filepath of a project folder, Cider prints the project’s "make" expression.</p>
+<p>Where <code>project</code> is the path of a project folder, Cider prints the project’s "make" expression.</p>
 <p>If <code>project</code> is omitted, Cider uses the one open project or, if you have more than one open, asks you which.</p>
 <h2 id="open-project"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Open project</h2>
 <p><em>Build the project in the active workspace and keep it linked</em></p>
@@ -917,7 +916,7 @@ The user command help says `folder` can be specified as an alias. Appears not to
 the command defines in namespace <code>#.myproj</code> the APL objects described by files in the project’s <code>APLSource</code> folder, linked to their source files.</p>
 </div>
 <p><strong>Options</strong></p>
-<p>Options affect only the command and leave the project configuration unchanged.</p>
+<p>Options <code>-import</code> and <code>-watch=</code> cannot be used together.</p>
 <dl>
 <dt><code>-alias=</code></dt>
 <dd>Remember this alias for the project.</dd>
@@ -930,24 +929,19 @@ the command defines in namespace <code>#.myproj</code> the APL objects described
 </div>
 </dd>
 <dt><code>-ignoreUserExec</code></dt>
-<dd>Do not execute the <a href="../configuration/#init"><code>init</code></a> function specified in the project configuration.</dd>
+<dd>Do not execute the function specified by the <a href="../configuration/#init"><code>init</code></a> setting in the project config.</dd>
 <dt><code>-import</code></dt>
-<dd>Do not link the built APL objects to their source files. No changes I make in the workspace will change the source files; nor will changes to the source files be mirrored in the workspace. Ignore the configuration <a href="../configuration/#watch"><code>watch</code></a> setting.</dd>
+<dd>Do not link APL objects to their source files. (Ignore the <a href="../configuration/#watch"><code>watch</code></a> setting in the project config.)</dd>
 <dt><code>-noPkgLoad</code></dt>
 <dd>Do not load the project’s Tatin packages.</dd>
 <dt><code>-parent=</code></dt>
-<dd>Override the project configuration’s <code>parent</code> property.</dd>
+<dd>Override the <a href="../configuration/#parent"><code>parent</code></a> setting in the project config.</dd>
 <dt><code>-projectSpace=</code></dt>
-<dd>Override the project configuration’s <code>projectSpace</code> property.</dd>
+<dd>Override the <a href="../configuration/#projectspace"><code>projectSpace</code></a> setting in the project config.</dd>
 <dt><code>-verbose</code></dt>
-<dd>Report command actions in detail.</dd>
+<dd>Report command actions in more detail.</dd>
 <dt><code>-watch=</code></dt>
-<dd>Where changes to object definitions cause Link to synchronise workspace objects with their source files. Options are <pre><code>ns   - workspace
-dir  - source files
-none - neither
-both - workspace and source files (default)
-</code></pre>
-</dd>
+<dd>Override the <a href="../configuration/#watch"><code>watch</code></a> setting in the project config.</dd>
 </dl>
 <h2 id="project-config"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Project config</h2>
 <p><em>Display or edit the project configuration</em></p>

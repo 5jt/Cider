@@ -880,9 +880,9 @@
 
 
 <h1 id="api-reference">API Reference</h1>
-<p>The API functions resemble their <a href="../user-commands/">user-command</a> equivalents, but are not identical.
-Some  do not have equivalent user commands.
-Unlike user commands, API function names are case-sensitive.</p>
+<p>The API functions are similar to the <a href="../user-commands/">user-commands</a>, but are not identical.
+Some  do not have equivalent user commands.</p>
+<p>Unlike user commands, API function names are case-sensitive.</p>
 <p>The API is exposed in <code>⎕SE.Cider</code> so, for example, call <code>AddAlias</code> as <code>⎕SE.Cider.AddAlias</code>.</p>
 <details class="warning">
 <summary>API code cache</summary>
@@ -897,7 +897,7 @@ Unlike user commands, API function names are case-sensitive.</p>
 <p>Where</p>
 <ul>
 <li><code>folder</code>  is a path to a project folder</li>
-<li><code>alias</code>   is a <abbr title="a character vector of depth 1">string</abbr> with no punctuation or spaces</li>
+<li><code>alias</code>   is a string with no punctuation or spaces</li>
 </ul>
 <p>if the project folder exists the alias is registered in the file returned by <a href="#GetCiderAliasFilename"><code>GetCiderAliasFilename</code></a>.
 The result is an error message, empty if successful.</p>
@@ -910,17 +910,17 @@ The result is an error message, empty if successful.</p>
 <li><code>packages</code>is one or more <abbr title=".NET package manager">NuGet</abbr> packages</li>
 <li><code>project</code> is a project alias or a path to a project folder </li>
 </ul>
-<p>Cider installs <abbr title=".NET package manager">NuGet</abbr> packages in the (single) <abbr title=".NET package manager">NuGet</abbr> dependency folder defined in the project’s configuration file and returns their names as a <abbr title="a nested vector of character vectors of depth 1">list of strings</abbr>.</p>
+<p>Cider installs <abbr title=".NET package manager">NuGet</abbr> packages in the (single) <abbr title=".NET package manager">NuGet</abbr> dependency folder defined in the project’s configuration file and returns their names as a list of strings.</p>
 <!-- FIXME list of strings? -->
 
-<p>Specify <code>packages</code> as either a <abbr title="a nested vector of character vectors of depth 1">list of strings</abbr> or a comma-separated <abbr title="a character vector of depth 1">string</abbr>.</p>
+<p>Specify <code>packages</code> as either a list of strings or a comma-separated string.</p>
 <div class="admonition warning">
 <p class="admonition-title"><abbr title=".NET package manager">NuGet</abbr> package names</p>
 <p><abbr title=".NET package manager">NuGet</abbr> package names are not case sensitive when they are loaded so, for example, you can load <code>Clock</code> by the name <code>clock</code>. </p>
 <p>However, the correct name is returned, and is required for using a package.</p>
 </div>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> 
-<a href="../user-commands/#add-nuget-dependencies"><code>]CIDER.AddNugetDependencies</code></a>.</p>
+<a href="../user-commands/#add-nuget-dependencies"><code>]CIDER.AddNugetDependencies</code></a></p>
 <h2 id="addtatindependencies"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> AddTatinDependencies</h2>
 <pre><code>r←AddTatinDependencies(packages project dev)
 </code></pre>
@@ -931,7 +931,7 @@ The result is an error message, empty if successful.</p>
 <li><code>dev</code> is a flag</li>
 </ul>
 <p>Cider installs the packages in one of the Tatin dependency folders defined in the project’s configuration file. (The default is <code>dependencies.tatin</code>.)</p>
-<p>Specify packages as either a <abbr title="a nested vector of character vectors of depth 1">list of strings</abbr> or a comma-separated <abbr title="a character vector of depth 1">string</abbr>.</p>
+<p>Specify packages as either a list of strings or a comma-separated string.</p>
 <p>Setting the <code>dev</code> flag switches the installation folder from <code>dependencies</code> (default) to<code>dependencies_dev</code>.</p>
 <!-- FIXME Result? -->
 
@@ -952,7 +952,7 @@ The result is an error message, empty if successful.</p>
 <li>aliases</li>
 <li>project paths</li>
 </ul>
-<p>Specify <code>projects</code> as either a <abbr title="a character vector of depth 1">string</abbr> or a <abbr title="a nested vector of character vectors of depth 1">list of strings</abbr>.</p>
+<p>Specify <code>projects</code> as either a string or a list of strings.</p>
 <p>The <strong>optional left argument</strong> can be either or both (in any order) of</p>
 <ul>
 <li>a list of projects as returned by <a href="#listopenprojects"><code>ListOpenProjects</code></a></li>
@@ -1087,7 +1087,7 @@ This setting defines the same function for all your Cider projects, which is why
 <p>returns either the value of <code>nuget</code> in the given branch or an empty vector if <code>nuget</code> is not defined.</p>
 <p>The <code>config</code> argument is typically derived from a project’s configuration file.</p>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> 
-<a href="../user-commands/#list-nuget-dependencies"><code>]CIDER.ListNuGetDependencies</code></a>.</p>
+<a href="../user-commands/#list-nuget-dependencies"><code>]CIDER.ListNuGetDependencies</code></a></p>
 <h2 id="getprogramfilesfolder"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> GetProgramFilesFolder</h2>
 <pre><code>r←{current}GetProgramFilesFolder suffix
 </code></pre>
@@ -1176,7 +1176,7 @@ Describe the other two columns
 <p>Where <code>y</code> is either</p>
 <ul>
 <li>
-<p>a <abbr title="a character vector of depth 1">string</abbr> specifying a project either as </p>
+<p>a string specifying a project either as </p>
 <ul>
 <li>the fully qualified filepath of a project folder containing a config file</li>
 <li>a registered project alias</li>
@@ -1339,7 +1339,7 @@ Depending on your actions, this might result in a deadlock. Dyalog would appear 
 <h2 id="version"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> Version</h2>
 <pre><code>r←Version
 </code></pre>
-<p>Returns a <abbr title="a character vector of depth 1">string</abbr> with major and minor versions, patch number and timestamp, e.g.</p>
+<p>Returns a string with major and minor versions, patch number and timestamp, e.g.</p>
 <pre><code>      ⎕SE.Cider.Version
 0.44.0+835
 </code></pre>
