@@ -268,15 +268,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-cider" class="md-nav__link">
-    Using Cider
+  <a href="#related-tools" class="md-nav__link">
+    Related tools
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-tools" class="md-nav__link">
-    Related tools
+  <a href="#using-cider" class="md-nav__link">
+    Using Cider
   </a>
   
 </li>
@@ -484,15 +484,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-cider" class="md-nav__link">
-    Using Cider
+  <a href="#related-tools" class="md-nav__link">
+    Related tools
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-tools" class="md-nav__link">
-    Related tools
+  <a href="#using-cider" class="md-nav__link">
+    Using Cider
   </a>
   
 </li>
@@ -530,35 +530,40 @@
 
 
 <h1 id="cider"><img alt="Cider logo" src="img/cider-logo.png" style="height: 1.8em" /> Cider</h1>
-<p><em>Cider is a project manager for Dyalog APL</em></p>
-<p>A project is</p>
+<!-- _Cider is a project manager for Dyalog APL_ -->
+
+<div class="admonition abstract">
+<p class="admonition-title">Cider is a project manager for authors who make software for others to use.</p>
+</div>
+<p>If you are an author, Cider helps you manage</p>
 <ul>
 <li>the software you publish</li>
 <li>the files you make it from</li>
-<li>any imported packages needed</li>
+<li>any imported packages it uses</li>
+<li>the versions you produce</li>
 </ul>
-<p>Cider manages projects written in Dyalog APL (with APL source kept as text files) and with imported <a href="https://tatin.dev">Tatin</a> or <a href="https://learn.microsoft.com/en-us/nuget/what-is-nuget">NuGet</a> packages.</p>
-<h2 id="using-cider">Using Cider</h2>
-<p>You use Cider through its <a href="user-commands/">user commands</a>.</p>
-<p>You identify your project folder (where you keep your APL source files) and any packages your project uses. When you open your project, Cider builds everything in namespaces in the session workspace.
-(Code is not stored in saved workspaces.)</p>
-<p>Cider assumes your project will have multiple versions, and keeps track of them for you.</p>
-<p>You can also use Cider through its API.</p>
 <h2 id="related-tools">Related tools</h2>
 <p>Cider cooperates with</p>
 <ul>
-<li><a href="https://dyalog.github.io/link">Link</a>, the tool for maintaining the source of functions and other Dyalog APL objects as text files</li>
-<li><a href="https://tatin.dev">Tatin</a>, the APL community’s package manager</li>
+<li><a href="https://dyalog.github.io/link">Link</a>, which maintains the source of Dyalog APL objects as text files</li>
+<li><a href="https://tatin.dev">Tatin</a>, the community APL package manager</li>
 <li><a href="https://www.nuget.org">NuGet</a>, the package manager for .NET</li>
-<li><a href="https://git-scm.com">Git</a>, a version-control system</li>
+<li><a href="https://git-scm.com">Git</a>, a source-control manager</li>
 <li><a href="https://dropbox.com">Dropbox</a>, a file-sharing service</li>
 </ul>
-<p>Cider is designed to work with the Git source control manager, but can also be used with others.</p>
+<p>Cider is designed to work with the popular Git source control manager,  but can also be used with others.</p>
+<h2 id="using-cider">Using Cider</h2>
+<p>You use Cider through its <a href="user-commands/">user commands</a>.</p>
+<p>You identify your project folder (where you keep your APL source files) and any packages your project uses. When you open your project, Cider builds everything in namespaces in the session workspace.</p>
+<!-- (Code is not stored in saved workspaces.) -->
+
+<p>Cider assumes your project will have multiple versions, and keeps track of them for you.</p>
+<p>You can also use Cider through its API.</p>
 <h2 id="requirements">Requirements</h2>
 <ol>
 <li>Dyalog Unicode Edition version 18.2 or better</li>
 <li>Your APL source kept in text files</li>
-<li>Tatin version xx.x or better</li>
+<li>Tatin version <mark>xx.x</mark> or better</li>
 </ol>
 <p>Dyalog 19.0 has Cider and Tatin installed.
 For Dyalog 18.2, Cider and Tatin have to be installed.</p>
