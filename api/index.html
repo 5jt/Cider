@@ -889,7 +889,6 @@ Some  do not have equivalent user commands.</p>
 <p>The Cider code package is loaded into <code>⎕SE._Cider</code>, but the API is exposed via <code>⎕SE.Cider</code>. </p>
 <p>Do not call functions in <code>⎕SE.Cider_</code>. </p>
 </details>
-<p>A flag is 1 or 0. It is ‘set’ with a value of 1.</p>
 <hr />
 <h2 id="addalias"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> AddAlias</h2>
 <pre><code>{r}←AddAlias(folder alias)
@@ -907,16 +906,16 @@ The result is an error message, empty if successful.</p>
 </code></pre>
 <p>Where</p>
 <ul>
-<li><code>packages</code>is one or more <abbr title=".NET package manager">NuGet</abbr> packages</li>
+<li><code>packages</code>is one or more NuGet packages</li>
 <li><code>project</code> is a project alias or a path to a project folder </li>
 </ul>
-<p>Cider installs <abbr title=".NET package manager">NuGet</abbr> packages in the (single) <abbr title=".NET package manager">NuGet</abbr> dependency folder defined in the project’s configuration file and returns their names as a list of strings.</p>
+<p>Cider installs NuGet packages in the (single) NuGet dependency folder defined in the project’s configuration file and returns their names as a list of strings.</p>
 <!-- FIXME list of strings? -->
 
 <p>Specify <code>packages</code> as either a list of strings or a comma-separated string.</p>
 <div class="admonition warning">
-<p class="admonition-title"><abbr title=".NET package manager">NuGet</abbr> package names</p>
-<p><abbr title=".NET package manager">NuGet</abbr> package names are not case sensitive when they are loaded so, for example, you can load <code>Clock</code> by the name <code>clock</code>. </p>
+<p class="admonition-title">NuGet package names</p>
+<p>NuGet package names are not case sensitive when they are loaded so, for example, you can load <code>Clock</code> by the name <code>clock</code>. </p>
 <p>However, the correct name is returned, and is required for using a package.</p>
 </div>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> 
@@ -1125,10 +1124,10 @@ C:\Users\kai\Documents\Dyalog APL-64 18.2 Unicode Files
 <h2 id="listnugetdependencies"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> ListNuGetDependencies</h2>
 <pre><code>r←ListNuGetDependencies projectFolder
 </code></pre>
-<p>Where <code>projectFolder</code> is the fully qualified filepath of a project folder, returns a matrix of names and versions of its <abbr title=".NET package manager">NuGet</abbr> dependencies.</p>
+<p>Where <code>projectFolder</code> is the fully qualified filepath of a project folder, returns a matrix of names and versions of its NuGet dependencies.</p>
 <div class="admonition detail">
-<p class="admonition-title">Single <abbr title=".NET package manager">NuGet</abbr> installation folder</p>
-<p>There can be only one <abbr title=".NET package manager">NuGet</abbr> installation folder: currently you cannot have <abbr title=".NET package manager">NuGet</abbr> packages for development purposes. </p>
+<p class="admonition-title">Single NuGet installation folder</p>
+<p>There can be only one NuGet installation folder: currently you cannot have NuGet packages for development purposes. </p>
 <p>This restriction may be lifted in a future release.</p>
 </div>
 <h2 id="listopenprojects"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> ListOpenProjects</h2>
@@ -1196,7 +1195,7 @@ Describe the other two columns
 <li>Sets the projects’s <a href="../configuration/#system">system variables</a> (at least <code>⎕IO</code> and <code>⎕ML</code>) in the project root.</li>
 <li>Brings all APL code and variables into the project root, linked to their source files according to the project’s <a href="../configuration/#watch"><code>watch</code></a> setting unless the <code>importFlag</code> parameter is set.</li>
 <li>Loads all Tatin packages from the Tatin installation folders defined by <a href="../configuration/#dependencies"><code>dependencies:tatin</code></a> and <a href="../configuration/#dependencies-dev"><code>dependencies_dev:tatin</code></a>.</li>
-<li>Loads all <abbr title=".NET package manager">NuGet</abbr> packages from the <abbr title=".NET package manager">NuGet</abbr> installation folder defined by <a href="../configuration/#dependencies"><code>dependencies:nuget</code></a>.</li>
+<li>Loads all NuGet packages from the NuGet installation folder defined by <a href="../configuration/#dependencies"><code>dependencies:nuget</code></a>.</li>
 <li>Injects a namespace <code>CiderConfig</code> into the project root and populates it with the contents of the configuration file.</li>
 <li>Injects a namespace <code>TatinVars</code> into the project root, and a ref pointing to that <code>TatinVars</code> (with the same name) if parameter <a href="../configuration/#tatinvars"><code>tatinVars</code></a> is defined in the project config <code>CIDER</code> section and points to a subnamespace of the project space.</li>
 <li>Changes the current directory as specified by <a href="../configuration/#askfordirchange"><code>AskForDirChange</code></a> in the global config.</li>
