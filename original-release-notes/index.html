@@ -6,15 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="How to contribute to Cider, the project manager for Dyalog APL software authors">
       
       
       
+        <link rel="prev" href="../api-reference/">
       
-        <link rel="prev" href="../release-notes/">
       
-      
-        <link rel="next" href="../original-user-guide/">
+        <link rel="next" href="../original-contributing/">
       
       
       <link rel="icon" href="../img/cider-logo.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Contributing to Cider - Cider User Guide</title>
+        <title>Release notes - Cider User Guide</title>
       
     
     
@@ -73,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing" class="md-skip">
+        <a href="#release-notes" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing to Cider
+              Release notes
             
           </span>
         </div>
@@ -186,12 +184,10 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href=".." class="md-tabs__link">
           
   
@@ -206,10 +202,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../original-user-guide/" class="md-tabs__link">
           
   
@@ -269,8 +267,6 @@
       
   
   
-    
-  
   
     
     
@@ -280,12 +276,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
@@ -299,7 +295,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Revised
@@ -470,29 +466,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Contributing
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -501,90 +477,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#develop" class="md-nav__link">
-    Develop
-  </a>
-  
-    <nav class="md-nav" aria-label="Develop">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#user-commands-and-the-api" class="md-nav__link">
-    User commands and the API
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-user-command-script" class="md-nav__link">
-    The user-command script
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#changing-user-command-functions" class="md-nav__link">
-    Changing user-command functions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#changing-api-functions" class="md-nav__link">
-    Changing API functions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#build" class="md-nav__link">
-    Build
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#distribute" class="md-nav__link">
-    Distribute
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -601,6 +493,8 @@
       
   
   
+    
+  
   
     
     
@@ -610,12 +504,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -629,7 +523,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Original
@@ -680,9 +574,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../original-release-notes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Release notes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -691,6 +605,84 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-0440-from-2024-11-16" class="md-nav__link">
+    Version 0.44.0 from 2024-11-16
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0432-from-2024-13" class="md-nav__link">
+    Version 0.43.2 from 2024-13
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0431-from-2024-09-25" class="md-nav__link">
+    Version 0.43.1 from 2024-09-25
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0430-from-2024-09-23" class="md-nav__link">
+    Version 0.43.0 from 2024-09-23
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0424-from-2024-09-07" class="md-nav__link">
+    Version 0.42.4 from 2024-09-07
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0423-from-2024-09-05" class="md-nav__link">
+    Version 0.42.3 from 2024-09-05
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0422-from-2024-08-04" class="md-nav__link">
+    Version 0.42.2 from 2024-08-04
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0421-from-2024-07-12" class="md-nav__link">
+    Version 0.42.1 from 2024-07-12
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -752,63 +744,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#develop" class="md-nav__link">
-    Develop
-  </a>
-  
-    <nav class="md-nav" aria-label="Develop">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#user-commands-and-the-api" class="md-nav__link">
-    User commands and the API
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-user-command-script" class="md-nav__link">
-    The user-command script
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#changing-user-command-functions" class="md-nav__link">
-    Changing user-command functions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#changing-api-functions" class="md-nav__link">
-    Changing API functions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test" class="md-nav__link">
-    Test
+  <a href="#version-0440-from-2024-11-16" class="md-nav__link">
+    Version 0.44.0 from 2024-11-16
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#build" class="md-nav__link">
-    Build
+  <a href="#version-0432-from-2024-13" class="md-nav__link">
+    Version 0.43.2 from 2024-13
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#distribute" class="md-nav__link">
-    Distribute
+  <a href="#version-0431-from-2024-09-25" class="md-nav__link">
+    Version 0.43.1 from 2024-09-25
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0430-from-2024-09-23" class="md-nav__link">
+    Version 0.43.0 from 2024-09-23
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0424-from-2024-09-07" class="md-nav__link">
+    Version 0.42.4 from 2024-09-07
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0423-from-2024-09-05" class="md-nav__link">
+    Version 0.42.3 from 2024-09-05
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0422-from-2024-08-04" class="md-nav__link">
+    Version 0.42.2 from 2024-08-04
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-0421-from-2024-07-12" class="md-nav__link">
+    Version 0.42.1 from 2024-07-12
   </a>
   
 </li>
@@ -831,119 +817,42 @@
   
 
 
-<h1 id="contributing">Contributing</h1>
-<div class="admonition abstract">
-<p class="admonition-title">How to contribute to Cider</p>
-</div>
-<p>Cider exposes an API and some user commands.</p>
-<p>API functions</p>
+<h1 id="release-notes">Release Notes</h1>
+<p>Cider release notes contain information regarding changes that...</p>
 <ul>
-<li>make no guesses: they require exact arguments and parameters</li>
-<li>do not communicate with you</li>
-<li>signal an error if they fail</li>
+<li>require action, like renaming stuff in project config files</li>
+<li>change the syntax of a command, like getting rid of a flag, or renaming it</li>
 </ul>
-<p>User commands</p>
+<p>In short, when compatability is affected.</p>
+<p>This document does not come with a complete list of fixes, added features etc. Consult <a href="https://github.com/aplteam/Cider/releases">Cider on GitHub</a> for that.</p>
+<h2 id="version-0440-from-2024-11-16">Version 0.44.0 from 2024-11-16</h2>
 <ul>
-<li>print helpful messages if something goes wrong (but signal errors for missing or invalid parameters)</li>
-<li>often guess what you want; e.g. if no project is specified but one is open, the command uses it; if several are open, Cider asks you to select one</li>
+<li><code>]OpenProject</code>'s reporting on Git enhanced and streamlined</li>
+<li>Some bug fixes</li>
 </ul>
-<h2 id="develop">Develop</h2>
-<p><strong>Development Mode</strong> (<abbr title="Development Mode">DM</abbr>) is set in variable <code>⎕SE.Cider.DEVELOPMENT</code>:</p>
-<pre><code>0 - off
-1 - on (verbose)
-2 - on (silent)
-</code></pre>
-<p>If <abbr title="Development Mode">DM</abbr> is 2, reports and warnings are suppressed.</p>
-<h3 id="user-commands-and-the-api">User commands and the API</h3>
-<p>Cider’s core logic is in the API functions.</p>
-<p>The user-command script works out whether it should execute code in <code>⎕SE</code> or in <code>#</code>,  then calls functions according to the <abbr title="Development Mode">DM</abbr>:</p>
-<pre><code>off - ⎕SE.Cider.##.UC
-on  - #.Cider.Cider.UC
-</code></pre>
-<p>The API functions are in <code>⎕SE.Cider</code>, and call objects in <code>⎕SE.Cider.##</code></p>
-<p>The user-command functions are in <code>⎕SE.Cider.##.UC</code></p>
-<h3 id="the-user-command-script">The user-command script</h3>
-<p>The user-command script is a thin cover for calls to (usually) <code>⎕SE.Cider.UC</code>. </p>
-<!-- FIXME Really? Namespace not previously mentioned. -->
-<p>You will rarely need to change it.</p>
-<p>If you do, Link records your changes <strong>only</strong> if you have specified environment variable</p>
-<pre><code>DYALOGSTARTUPKEEPLINK : 1,
-</code></pre>
-<p>in a Dyalog configuration file.</p>
-<div class="admonition tip">
-<p class="admonition-title">See the Dyalog <em>Installation and Configuration Guide</em> for how to set environment variables.</p>
-</div>
-<p>Change the script either in the location it is started from, or in the project, but not in both. </p>
-<p>When you create a new version, Cider checks whether the two versions are identical.
-If not, it proposes copying over the version that carries the latest changes.</p>
-<!-- FIXME I don’t understand this. -->
-
-<h3 id="changing-user-command-functions">Changing user-command functions</h3>
-<p>The user-command script calls functions in <code>#.Cider.UC</code> when <abbr title="Development Mode">DM</abbr> is on, and in <code>⎕SE.Cider.##.UC</code> when <abbr title="Development Mode">DM</abbr> is off.</p>
-<!-- FIXME Contradicts reference above to #.Cider.Cider.UC -->
-
-<p>Because that namespace is part of the project, with <abbr title="Development Mode">DM</abbr> on, your changes are recorded, and developing is easy.</p>
-<!-- FIXME Which namespace? -->
-
-<h3 id="changing-api-functions">Changing API functions</h3>
-<p>A Cider user command calls a function in the <code>UC</code> namespace (see above), which eventually calls an API function in</p>
-<pre><code>#.Cider.Cider   ⍝ DM on
-⎕SE.Cider       ⍝ DM off
-</code></pre>
-<p>When Cider opens Cider as a project, it proposes setting <abbr title="Development Mode">DM</abbr> on in <code>⎕SE.Cider</code>.</p>
-<p>If <abbr title="Development Mode">DM</abbr> is on, Cider establishes a reference not to <code>⎕SE.Cider</code> but to <code>#.Cider.Cider</code>.</p>
-<!-- FIXME Establishes a reference? -->
-
-<p>The consequence is that when you change a function in the course of running it, Link will save it <em>in the project</em>, preserving your changes.</p>
-<p>To remind you what’s happening, Cider prints a warning whenever a user command is executed:</p>
-<pre><code>*** Warning: Code is executed in #.Cider.Cider rather than ⎕SE.Cider!
-</code></pre>
-<h2 id="test">Test</h2>
-<p>Cider can tell you how to run the test cases:</p>
-<pre><code>]Cider.RunTests
-</code></pre>
-<p>That prints an expression that, if executed, runs all the tests (interactive included) and reports to the session.</p>
-<p>If <abbr title="Development Mode">DM</abbr> is 1, the test suite sets it to 2 while running, so as not to flood the session window.</p>
-<p>To execute the test suite in batch mode (no reports, and returns a single flag indicating success):</p>
-<!-- FIXME Why a batch mode if the test suite sets DM to 2 while running? -->
-
-<pre><code>#.Cider.TestCases.RunTestsInBatchMode
-</code></pre>
-<div class="admonition warning">
-<p class="admonition-title">NuGet tests require .NET</p>
-<p>Running the NuGet tests requires .NET, rather than .NET Framework.</p>
-<p>The test cases execute only if .NET is available.
-<!-- FIXME Just the Nuget tests, or all tests? --></p>
-</div>
-<h2 id="build">Build</h2>
-<p>Cider can tell you how to build a new version. 
-User command</p>
-<pre><code>]Cider.Make
-</code></pre>
-<p>prints an expression that builds a new version. </p>
-<p>Before executing it, check both <code>#.Cider.Cider.Version</code> and <code>#.Cider.Cider.History</code> are up-to-date.</p>
-<p>Cider’s <code>Admin.Make</code> function creates a new version and saves it as a ZIP file in the distribution folder specified in the project config.</p>
-<p>Finally, Cider proposes installing the new version.</p>
-<p>Doing so installs Cider over the current version.
-Restart Dyalog to use the new version.</p>
-<!-- 
-FIXME How can Cider not be installed if it is running?
-
-  , or, if it has not been previously installed, ask the user whether it should be installed into the version-specific or the version-agnostic folder for Dyalog files on your operating system.
- -->
-
-<h2 id="distribute">Distribute</h2>
-<p>To release a new version to Dyalog for bundling:</p>
-<ol>
-<li>Install Cider from the <code>tatin</code> Registry</li>
-<li>Zip the contents of the installation folder into a file with the name <pre><code>Installed-aplteam-Cider-&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;
-</code></pre>
-</li>
-</ol>
-<p>This function takes an argument of 1 and executes both steps:</p>
-<pre><code>#.Cider.Admin.MakeZipForDyalog 1
-</code></pre>
-<p>Upload the ZIP file to the release page for the version, where Dyalog can fetch and process it.</p>
+<h2 id="version-0432-from-2024-13">Version 0.43.2 from 2024-13</h2>
+<p>Just bug fixes</p>
+<h2 id="version-0431-from-2024-09-25">Version 0.43.1 from 2024-09-25</h2>
+<p>Just bug fixes</p>
+<h2 id="version-0430-from-2024-09-23">Version 0.43.0 from 2024-09-23</h2>
+<ul>
+<li>The <code>-raw</code> flag has been removed from the <code>]ListTatinDependencies</code> user command</li>
+</ul>
+<h2 id="version-0424-from-2024-09-07">Version 0.42.4 from 2024-09-07</h2>
+<p>Just bug fixes</p>
+<h2 id="version-0423-from-2024-09-05">Version 0.42.3 from 2024-09-05</h2>
+<p>Just bug fixes</p>
+<h2 id="version-0422-from-2024-08-04">Version 0.42.2 from 2024-08-04</h2>
+<p>Just bug fixes</p>
+<h2 id="version-0421-from-2024-07-12">Version 0.42.1 from 2024-07-12</h2>
+<ul>
+<li>So far Cider injected a reference <code>TatinVars</code> into a sub-namespace of the project defined by Cider's <code>tatinVars</code> property, pointing to <code>TatinVars</code> in the root of the project.</li>
+</ul>
+<p>With version 0.42.1 this has changed: in case <code>tatinVars</code> specifies a sub-namespace, NO <code>TatinVars</code> is injected into the root of the project. Instead, such a namespace is injected into the sub-namespace defined by the <code>tatinVars</code> property.</p>
+<ul>
+<li>The <code>]Cider.ProjectConfig</code> user command does not have a <code>-print</code> flag anymore but an <code>-edit</code> flag instead, and by default it prints the content of Cider's global config file to the session.</li>
+</ul>
+<p>That brings this user command syntactially in line with another Cider user command (<code>Config</code>) and similar Tatin user commands.</p>
 
 
 

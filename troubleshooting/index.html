@@ -6,13 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="How to spot and handle problems with Cider, the project manager for Dyalog APL software authors.">
+      
       
       
       
         <link rel="prev" href="../configuration/">
       
       
-        <link rel="next" href="../original-user-guide/">
+        <link rel="next" href="../release-notes/">
       
       
       <link rel="icon" href="../img/cider-logo.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>Troubleshooting - Cider User Guide</title>
+        <title>Troubleshooting Cider - Cider User Guide</title>
       
     
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Troubleshooting
+              Troubleshooting Cider
             
           </span>
         </div>
@@ -500,6 +502,46 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -592,11 +634,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../contributing/" class="md-nav__link">
+      <a href="../original-release-notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Contributing
+    Release notes
   </span>
   
 
@@ -612,11 +654,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/" class="md-nav__link">
+      <a href="../original-contributing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Release notes
+    Contributing
   </span>
   
 
@@ -694,8 +736,12 @@
 
 
 <h1 id="troubleshooting">Troubleshooting</h1>
+<details class="quote">
+<summary>I don’t mind a reasonable amount of trouble.</summary>
+<p>Sam Spade in Dashiel Hammett’s <em>The Maltese Falcon</em></p>
+</details>
 <h2 id="how-link-watches-for-changes">How Link watches for changes</h2>
-<p>To detect changes on the file system, Link uses a File System Watcher, which requires .NET.</p>
+<p>To detect changes on the file system, Link uses a .NET File System Watcher.</p>
 <p>To detect changes in the workspace, Link uses APL threads.</p>
 <p>When you trace through your code, or set a stop vector, and have <em>Pause on Error</em> checked in the session’s <em>Threads</em> menu, handlers associated with those threads will also stop.</p>
 <p>The Link handlers set a Hold under some circumstances. 

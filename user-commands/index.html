@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Complete reference for the Cider user commands, most convenient way to use the Cider project manager for Dyalog APL.">
+      
       
       
       
@@ -20,7 +22,7 @@
     
     
       
-        <title>User commands - Cider User Guide</title>
+        <title>Cider user commands - Cider User Guide</title>
       
     
     
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              User commands
+              Cider user commands
             
           </span>
         </div>
@@ -605,6 +607,46 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -697,11 +739,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../contributing/" class="md-nav__link">
+      <a href="../original-release-notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Contributing
+    Release notes
   </span>
   
 
@@ -717,11 +759,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/" class="md-nav__link">
+      <a href="../original-contributing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Release notes
+    Contributing
   </span>
   
 
@@ -904,9 +946,9 @@
 
 
 <h1 id="user-commands">User commands</h1>
-<div class="admonition tip">
-<p class="admonition-title">All the user commands have help built in</p>
-<p>For example</p>
+<div class="admonition abstract">
+<p class="admonition-title">User commands are Cider’s user interface</p>
+<p>All the user commands have help built in, for example</p>
 <pre><code>]CIDER -?
 ]CIDER -??
 ]CIDER.AddNuGetDependencies -?
@@ -924,8 +966,8 @@ They override settings in the <a href="../configuration/#project">project</a> an
 <hr />
 <h2 id="add-nuget-dependencies"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Add NuGet dependencies</h2>
 <p><em>Add one or more NuGet packages as dependencies</em></p>
-<div class="highlight"><pre><span></span><code>]CIDER.AddNuGetDependencies pkglist [project]
-</code></pre></div>
+<pre><code>]CIDER.AddNuGetDependencies pkglist [project]
+</code></pre>
 <p>Where</p>
 <ul>
 <li><code>pkglist</code> is a comma-separated list of NuGet packages to be installed</li>
@@ -1028,7 +1070,7 @@ Otherwise attempts to close projects are reported in detail.</p>
 </ul>
 <p>If the project folder already contains a file <code>cider.config</code> Cider signals an error, unless the <code>acceptConfig</code> option is used.</p>
 <p>Cider initialises the project folder, links it to the project space, and offers the project config for editing, checking required settings are specified correctly.</p>
-<p>Finally Cider offers to open the new project.                                                         </p>
+<p>Finally Cider offers to open the new project.</p>
 <table>
 <tbody>
 <tr>
@@ -1053,11 +1095,11 @@ Otherwise attempts to close projects are reported in detail.</p>
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p class="admonition-title">Keep the workspace root empty</p>
+<details class="tip">
+<summary>Keep the workspace root empty</summary>
 <p>Good practice keeps the active workspace root empty. So Cider is designed to associate each project with a namespace.</p>
 <p>To create a root project (NOT recommended) specify <code>#</code> as the project space.</p>
-</div>
+</details>
 <h2 id="help"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Help</h2>
 <p><em>Display the Cider User Guide</em></p>
 <pre><code>]CIDER.Help
@@ -1103,7 +1145,6 @@ The user command help says project can be specified as an alias. Appears not to 
 <pre><code>]CIDER.ListOpenProjects
 </code></pre>
 <p>Prints a list of all open projects.</p>
-<p>Options:</p>
 <table>
 <tbody>
 <tr>
@@ -1123,12 +1164,10 @@ The user command help says project can be specified as an alias. Appears not to 
 <td><code>full</code></td>
 <td>Print a hierarchical report on all dependencies.</td>
 </tr>
-<tr>
-<td><code>raw</code></td>
-<td>Print dependency data unformatted.</td>
-</tr>
 </tbody>
 </table>
+<!-- `raw`  | Print dependency data unformatted. -->
+
 <p>The full report does not show what is actually used, but what the packages themselves require. 
 (Due to minimum version selection they might end up using a later version.) 
 This can help show why a particular (typically old) package is required.</p>
