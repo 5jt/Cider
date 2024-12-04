@@ -1390,12 +1390,23 @@ z"/>
 <h1 id="user-commands">User commands</h1>
 <div class="admonition abstract">
 <p class="admonition-title">User commands are Cider’s user interface</p>
+</div>
+<pre style="font-family: APL">
+  AddNuGetDependencies    ListOpenProjects
+  AddTatinDependencies    ListTatinDependencies
+  CloseProject            Make
+  Config                  OpenProject
+  CreateProject           ProjectConfig
+  Help                    RunTests
+  ListAliases             UpdateCider
+  ListNuGetDependencies   Version
+</pre>
+
 <p>All the user commands have help built in, for example</p>
 <pre><code>]CIDER -?
 ]CIDER -??
 ]CIDER.AddNuGetDependencies -?
 </code></pre>
-</div>
 <p>User commands and their options are case-insensitive.</p>
 <h2 id="command-options">Command options</h2>
 <p>Each command’s options are tabulated below its definition.</p>
@@ -1408,8 +1419,7 @@ They override settings in the <a href="../configuration/#project">project</a> an
 <hr />
 <h2 id="add-nuget-dependencies"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Add NuGet dependencies</h2>
 <p><em>Add one or more NuGet packages as dependencies</em></p>
-<pre><code>]CIDER.AddNuGetDependencies pkglist [project]
-</code></pre>
+<p class="syntax">]CIDER.AddNuGetDependencies pkglist [project]</p>
 <p>Where</p>
 <ul>
 <li><code>pkglist</code> is a comma-separated list of NuGet packages to be installed</li>
@@ -1428,8 +1438,7 @@ They override settings in the <a href="../configuration/#project">project</a> an
 </table>
 <h2 id="add-tatin-dependencies"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Add Tatin dependencies</h2>
 <p><em>Add one or more Tatin packages as dependencies</em></p>
-<pre><code>]CIDER.AddTatinDependency pkglist [project]
-</code></pre>
+<p class="syntax">]CIDER.AddTatinDependency pkglist [project]</p>
 <p>Where</p>
 <ul>
 <li><code>pkglist</code> is a comma-separated list of Tatin packages to be installed</li>
@@ -1452,8 +1461,7 @@ They override settings in the <a href="../configuration/#project">project</a> an
 </table>
 <h2 id="close-project"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Close project</h2>
 <p><em>Break the link between the workspace and the files on disk</em></p>
-<pre><code>]CIDER.CloseProject [projects]
-</code></pre>
+<p class="syntax">]CIDER.CloseProject [projects]</p>
 <p>Where <code>projects</code> is one or more projects, Cider breaks the link between their namespaces and the associated files on disk.</p>
 <p>If you omit <code>project</code> Cider uses the one open project or, if you have more than one open, asks you which.</p>
 <p>You can specify a project as</p>
@@ -1475,8 +1483,7 @@ Otherwise attempts to close projects are reported in detail.</p>
 </table>
 <h2 id="config"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Config</h2>
 <p><em>Display or edit Cider’s global configuration</em></p>
-<pre><code>]CIDER.Config
-</code></pre>
+<p class="syntax">]CIDER.Config</p>
 <p>Cider prints the content of its global config file to the session.</p>
 <table>
 <tbody>
@@ -1501,8 +1508,7 @@ Otherwise attempts to close projects are reported in detail.</p>
 </div>
 <h2 id="create-project"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Create project</h2>
 <p><em>Initialise a folder as a project</em></p>
-<pre><code>]CIDER.CreateProject [projectpath [projectspace] ]
-</code></pre>
+<p class="syntax">]CIDER.CreateProject [projectpath [projectspace] ]</p>
 <p>Where</p>
 <ul>
 <li><code>projectpath</code> (optional) is a path to the project folder.
@@ -1544,12 +1550,10 @@ Otherwise attempts to close projects are reported in detail.</p>
 </details>
 <h2 id="help"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Help</h2>
 <p><em>Display the Cider User Guide</em></p>
-<pre><code>]CIDER.Help
-</code></pre>
+<p class="syntax">]CIDER.Help</p>
 <h2 id="list-aliases"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> List aliases</h2>
 <p><em>List all defined aliases with their folders</em></p>
-<pre><code>]CIDER.ListAliases
-</code></pre>
+<p class="syntax">]CIDER.ListAliases</p>
 <table>
 <tbody>
 <tr>
@@ -1573,8 +1577,7 @@ Otherwise attempts to close projects are reported in detail.</p>
 <p>Only options <code>prune</code> and <code>batch</code> can be used together.</p>
 <h2 id="list-nuget-dependencies"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> List NuGet dependencies</h2>
 <p><em>List NuGet packages installed as dependencies</em></p>
-<pre><code>]CIDER.ListNugetDependencies [projectpath
-</code></pre>
+<p class="syntax">]CIDER.ListNugetDependencies [projectpath]</p>
 <p>Where <code>projectpath</code> is the project path, Cider lists the project’s NuGet dependencies.</p>
 <p>If you omit <code>projectpath</code> Cider uses the one open project or, if you have more than one open, asks you which.</p>
 <!-- 
@@ -1584,8 +1587,7 @@ The user command help says project can be specified as an alias. Appears not to 
 
 <h2 id="list-open-projects"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> List open projects</h2>
 <p><em>List all currently open projects</em></p>
-<pre><code>]CIDER.ListOpenProjects
-</code></pre>
+<p class="syntax">]CIDER.ListOpenProjects</p>
 <p>Prints a list of all open projects.</p>
 <table>
 <tbody>
@@ -1596,8 +1598,7 @@ The user command help says project can be specified as an alias. Appears not to 
 </tbody>
 </table>
 <h2 id="list-tatin-dependencies"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> List Tatin dependencies</h2>
-<pre><code>]CIDER.ListTatinDependencies [projectpath]
-</code></pre>
+<p class="syntax">]CIDER.ListTatinDependencies [projectpath]</p>
 <p>Where <code>projectpath</code> is a project path, Cider lists Tatin packages installed as dependencies of the project.</p>
 <p>If you omit <code>projectpath</code> Cider uses the one open project or, if you have more than one open, asks you which.</p>
 <table>
@@ -1615,14 +1616,12 @@ The user command help says project can be specified as an alias. Appears not to 
 This can help show why a particular (typically old) package is required.</p>
 <h2 id="make"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Make</h2>
 <p><em>Print the expression that builds a new version of the project</em></p>
-<pre><code>]CIDER.Make [projectpath]
-</code></pre>
+<p class="syntax">]CIDER.Make [projectpath]</p>
 <p>Where <code>projectpath</code> is a project path, Cider prints the project’s "make" expression.</p>
 <p>If you omit <code>projectpath</code> Cider uses the one open project or, if you have more than one open, asks you which.</p>
 <h2 id="open-project"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Open project</h2>
 <p><em>Build the project in the active workspace and keep it linked</em></p>
-<pre><code>]CIDER.OpenProject project
-</code></pre>
+<p class="syntax">]CIDER.OpenProject project</p>
 <p>Where <code>project</code> is an alias or project path, Cider builds the project in the active workspace, linked to its source files.
 <a href="../open-project/">More detail…</a></p>
 <table>
@@ -1673,8 +1672,7 @@ This can help show why a particular (typically old) package is required.</p>
 <p>The <code>batch</code> option is intended for test cases. Consider instead using the <a href="../api/#open-project"><code>OpenProject</code></a> API function.</p>
 <h2 id="project-config"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Project config</h2>
 <p><em>Display or edit the project configuration</em></p>
-<pre><code>]CIDER.ProjectConfig [projectpath]
-</code></pre>
+<p class="syntax">]CIDER.ProjectConfig [projectpath]</p>
 <p>Where <code>projectpath</code> is the path to a project folder, prints the project configuration.</p>
 <p>If you omit <code>projectpath</code> Cider uses the one open project or, if you have more than one open, asks you which.</p>
 <table>
@@ -1687,14 +1685,12 @@ This can help show why a particular (typically old) package is required.</p>
 </table>
 <h2 id="run-tests"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Run tests</h2>
 <p><em>Print the expression that executes the project’s test suite</em></p>
-<pre><code>]CIDER.RunTests [projectpath]
-</code></pre>
+<p class="syntax">]CIDER.RunTests [projectpath]</p>
 <p>Where <code>projectpath</code> is a project path, Cider prints the APL expression that executes its test suite.</p>
 <p>If you omit <code>projectpath</code> Cider uses the one open project or, if you have more than one open, asks you which.</p>
 <h2 id="update-cider"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Update Cider</h2>
 <p><em>Tries to update Cider</em></p>
-<pre><code>]CIDER.UpdateCider
-</code></pre>
+<p class="syntax">]CIDER.UpdateCider</p>
 <p>If a later version is available, Cider asks whether you want to update to it.</p>
 <p>When the update is complete, restart Dyalog, rebuild the user commands, and print the current version.</p>
 <pre><code>      ]UReset
@@ -1721,8 +1717,7 @@ This can help show why a particular (typically old) package is required.</p>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.1 52.4 442.6 6.5c-1.9-3.9-6.1-6.5-10.5-6.5s-8.5 2.6-10.4 6.5l-16.5 45.9-46 16.8c-4.3 1.6-7.3 5.9-7.2 10.4 0 4.5 3 8.7 7.2 10.2l45.7 16.8 16.8 45.8c1.5 4.4 5.8 7.5 10.4 7.5s8.9-3.1 10.4-7.5l16.5-45.8 45.7-16.8c4.2-1.5 7.2-5.7 7.2-10.2 0-4.6-3-8.9-7.2-10.4l-45.6-16.8zm-132.4 53c-12.5-12.5-32.8-12.5-45.3 0l-2.9 2.9c-22-8-45.8-12.3-70.5-12.3C93.1 96 0 189.1 0 304s93.1 208 208 208 208-93.1 208-208c0-24.7-4.3-48.5-12.2-70.5l2.9-2.9c12.5-12.5 12.5-32.8 0-45.3l-80-80zM200 192c-57.4 0-104 46.6-104 104v8c0 8.8-7.2 16-16 16s-16-7.2-16-16v-8c0-75.1 60.9-136 136-136h8c8.8 0 16 7.2 16 16s-7.2 16-16 16h-8z"/></svg></span>
 Troubleshooting: <a href="../troubleshooting/#updating-cider">Updating Cider</a></p>
 <h2 id="version"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M9.4 86.6c-12.5-12.5-12.5-32.7 0-45.2s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416h288c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg></span> Version</h2>
-<pre><code>]CIDER.Version
-</code></pre>
+<p class="syntax">]CIDER.Version</p>
 <p>Prints major, minor and patch numbers:</p>
 <pre><code>      ]CIDER.Version
 0.44.0+835
