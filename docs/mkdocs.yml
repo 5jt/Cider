@@ -11,6 +11,7 @@ nav:
   - Open project: open-project.md
   - API functions: api.md
   - Configuration: configuration.md
+  - Worked example: example.md
   - Troubleshooting: troubleshooting.md
   - Release notes: release-notes.md
   - Contributing: contributing.md
@@ -89,5 +90,6 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tilde
+  - sane_lists
   - toc:
       title: On this page
