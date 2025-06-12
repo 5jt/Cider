@@ -80,3 +80,8 @@ pre + pre > code, hr + pre > code {
 	margin-left: 1em;
 	white-space: preserve;
 }
+
+/*relax space between icon and following text*/
+span.twemoji svg {
+    margin-right: .15em;
+}
