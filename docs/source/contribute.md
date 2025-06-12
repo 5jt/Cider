@@ -1,10 +1,10 @@
 ---
-title: Contributing to Cider
+title: Contribute to Cider
 description: How to contribute to Cider, the project manager for Dyalog APL software authors
 keywords: api, apl, cider, dyalog, link, source, tatin, versions
 ---
 
-# Contributing
+# :fontawesome-brands-github: Contribute
 
 
 !!! abstract "How to contribute to Cider"
@@ -23,6 +23,14 @@ User commands
 -   print helpful messages if something goes wrong (but signal errors for missing or invalid parameters)
 -   often guess what you want; e.g. if no project is specified but one is open, the command uses it; if several are open, Cider asks you to select one
 
+
+## :dyalog-cider-logo: Cider manages Cider
+
+The Cider source code is itself a Cider project. 
+
+1.  Fork a copy of the official repository
+2.  Clone it to your local machine
+3.  Open it with Cider
 
 ## Namespaces
 
@@ -148,7 +156,7 @@ To remind you what’s happening, Cider prints a warning whenever a user command
 
 Cider can tell you how to run the test cases:
 
-    ]Cider.RunTests
+    ]Cider.HowToRunTests
 
 That prints an expression that, if executed, runs all the tests (interactive included) and reports to the session.
 
@@ -171,7 +179,7 @@ To execute the test suite in batch mode (no reports, and returns a single flag i
 Cider can tell you how to build a new version.
 User command
 
-    ]Cider.Make
+    ]Cider.HowToMakeNewVersion
 
 prints an expression that builds a new version.
 

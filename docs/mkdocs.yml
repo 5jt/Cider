@@ -11,10 +11,10 @@ nav:
   - Open project: open-project.md
   - API functions: api.md
   - Configuration: configuration.md
-  - Worked example: example.md
+  - Tutorial: tutorial.md
   - Troubleshooting: troubleshooting.md
   - Release notes: release-notes.md
-  - Contributing: contributing.md
+  - Contribute: contribute.md
 
 theme:
   custom_dir: overrides

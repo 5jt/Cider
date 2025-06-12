@@ -1,17 +1,18 @@
 ---
-title: Cider worked example
+title: 'Tutorial for Cider and Tatin'
 description: A worked example of using Cider to develop four Tatin packages
 keywords: api, apl, cider, dyalog, example, link, source, tatin
 ---
 
-# A worked example using Cider and Tatin
+# :fontawesome-solid-person-chalkboard: Tutorial
 
-!!! abstract "Goal"
+
+!!! abstract "A worked example using Cider and Tatin"
 
     Use Cider as the project manager to publish some Tatin packages, with test scripts, and dependencies on each other, all with public GitHub repos.
 
 
-## Four packages
+## Four packages :fontawesome-solid-boxes-packing: :fontawesome-solid-box-open:
 
 A worked example needs packages that are simple but not trivial
 – and preferably actually useful.
@@ -19,10 +20,10 @@ A worked example needs packages that are simple but not trivial
 ---|---
 [NiceTime](https://github.com/5jt/nicetime) | Take a `⎕TS` timestamp as argument and return a text string describing the offset from the present.
 [Translate](https://github.com/5jt/translate) | For a text string, return from a dictionary its equivalent in another language.
-[Text](https://github.com/5jt/text) | An APL equivalent of Python’s interpolated string, e.g. `f'2+2={2+2}'` => `'2=2=4'`.
+[Text](https://github.com/5jt/text) | An APL equivalent of Python’s interpolated string, e.g. `f'2+2={2+2}'` => `'2+2=4'`.
 [TinyTest](https://githb.com/5jt/tinytest)| A minimal test framework: operators to compare against an expected result, and catch an expected error.
 
-Examples:
+Usage examples:
 
 ```apl
       #.nicetime.was (-∘1@3)⎕TS
@@ -85,15 +86,17 @@ For the first package in this worked example, these steps are described in detai
 For subsequent packages, only the variations.
 
 
-## TinyTest
+## TinyTest :fontawesome-solid-vial: :fontawesome-solid-microscope:
 
 !!! abstract "The smallest testing framework that could possibly work"
 
 The other three packages depend on TinyTest, which has no dependencies of its own.
 So we publish TinyTest first.
 
+:fontawesome-brands-github: [TinyTest](https://github.com/5jt/tinytest)
 
-### Create a Cider project
+
+### :dyalog-cider-logo: Create a Cider project
 
 We begin in my `examples/` folder.
 (You will of course use your own file path.)
@@ -161,7 +164,7 @@ Nothing in the `APLSource/` folder yet.
 We can fix that.
 
 
-### APL source
+### :apl-apl-logo: APL source
 
 ```apl
       )CS #.tinytest
@@ -183,7 +186,7 @@ tinytest
 Now we have something worth backing up.
 
 
-### Git and GitHub
+### :fontawesome-brands-github: Git and GitHub
 
 On GitHub we create a new repo for TinyTest, with a `README.md` and a licence acceptable to Tatin.
 (Below, the GitHub username is `5jt`; you will, of course, use your own account and email address.)
@@ -217,7 +220,7 @@ tinytest
 ```
 
 
-### Initialise as a Tatin package
+### :dyalog-tatin-logo: Initialise as a Tatin package
 
 So far we have working APL code, managed by Cider, and backed by a GitHub repo.
 We do not yet have a Tatin package.
@@ -226,7 +229,7 @@ Back to the APL session.
 ```apl
       ]CD
 /Users/sjt/Projects/dyalog/examples
-      ]TATIN.Init tinytest
+      ]TATIN.CreateProject tinytest
 
 There is no file /Users/sjt/Projects/dyalog/examples/tinytest/apl-package.json yet; would you like to create it? (Y/n) Y
 Enter the group name (mandatory): sjt
@@ -276,15 +279,17 @@ This is nearly right.
 
             documentation: "https://github.com/5jt/tinytest",
 
--   The zero values for `⎕IO` and `⎕ML` are not the Dyalog defaults.
-    Cider will overwrite them with 1 anyway but it will do no harm and remove any uncertainty if we set them here explicitly to 1.
-
-            io: 1,
-            ml: 1,
-
 -   We must specify where the APL source files are, i.e. `APLSource/`.
 
             source: "APLSource",
+
+??? tip "Index Origin and Migration Level"
+
+    Tatin reads (and configures) the values of `⎕IO` and `⎕ML` from your default Dyalog configuration, that is, from `2 ⎕NQ # 'GetEnvironment' 'default_io`, etc.
+
+    It is best to keep these system variables the same throughout your package.
+    If you want a different value in a particular namespace,
+    have a project initialisation function set it. 
 
 
 ??? danger "Minimum APL version"
@@ -306,7 +311,7 @@ Tatin configuration file `apl-package.json` now appears in the project folder.
 TinyTest has no dependencies, so we are ready to build the package.
 
 
-### Build the package
+### :fontawesome-solid-file-zipper: Build the package
 
 The last step before publishing is to build the Tatin package as a ZIP in the distribution folder specified in the Cider configuration.
 
@@ -338,10 +343,16 @@ tinytest
 └── README.md
 ```
 In the distribution folder `Dist/` we see a ZIP of version 0.1.0.
+We do not want it under version control:
+
+!!! example "tinytest/.gitignore"
+
+        Dist/
+
 The package is ready to publish to the Test server.
 
 
-### Publish to a Tatin server
+### :dyalog-tatin-logo: Publish to a Tatin server
 
 The working directory is still the `examples/` folder, so the path to the project folder is simply `tinytest`.
 
@@ -355,7 +366,7 @@ Package published on https://test.tatin.dev/
  sjt-tinytest                           1
 ```
 
-## Text
+## Text :fontawesome-solid-text-width: :fontawesome-solid-text-height:
 
 ??? abstract "Interpolate a string, much like Python’s `f` does."
 
@@ -370,6 +381,7 @@ Package published on https://test.tatin.dev/
     2 + 3 = 5
     ```
 
+:fontawesome-brands-github: [Text](https://github.com/5jt/text)
 
 The Text package has three features that TinyTest does not:
 
@@ -386,7 +398,7 @@ We deal with these as follows:
 We follow the same steps as for TinyTest but stop before building the Text package.
 
 
-### Declare the test script
+### :dyalog-cider-logo: Declare the test script
 
 Create the Cider project.
 
@@ -411,7 +423,7 @@ In the configuration declare the test script `tests`.
 As for TinyTest, create the APL source files and set up the GitHub repository.
 
 
-### Create the public API
+### :apl-apl-logo: Create the public API
 
 If Text were a class it would expose `f` as a method and `DEBUG` as an instance property.
 But for a (lightweight) namespace, we follow the Tatin convention of listing the exposed objects in a constant `Public`.
@@ -425,12 +437,43 @@ and use a Tatin API function to create a public API for Text.
 ```apl
       ]CD
 /Users/sjt/Projects/Dyalog/examples
-      cfg←0(⎕JSON⍠'Dialect' 'JSON5')⊃⎕NGET 'text/apl-package.json'
+      cfg←⎕SE.Tatin.ReadPackageConfigFile 'text'
       ⎕SE.Tatin.CreateAPIfromCFG (#.text cfg)
 ```
 
+### :apl-apl-logo: Core, admin and tests
 
-### Install the dependency
+!!! tip "Divide your code from the beginning"
+
+With a public API you conceal objects you don’t intend for external use.
+There are three kinds:
+
+-   **private** for use by the exposed objects
+-   **tests** for use by the package developers
+-   **admin** for use in assembling a release
+
+It is good practice to divide the objects between namespaces.
+If we had done this with Text, its `APLSource/` folder would look like this:
+```txt hl_lines="5 9"
+APLSource/
+├── API/
+│  ├── DEBUG.aplf
+│  └── f.aplf
+├── Core/
+│  ├── DEBUG.aplf
+│  └── f.aplf
+├── Public.apla
+└── Test/
+   └── tests.aplf
+```
+The packages in this worked example are too tiny for this to be helpful,
+but most packages are much larger.
+
+With your own packages you will find it much easier
+to divide the objects from the start than to divide them later.
+
+
+### :dyalog-cider-logo: Install the dependency
 
 A package’s dependencies are listed in the file `apl-dependencies.txt` in its root.
 
@@ -453,11 +496,15 @@ and install TinyTest in it:
 ```
 <!-- FIXME Confirm the command installs the dependency as well as listing it. -->
 
-We have no interest in using Git to control Tatin source code.
+Git should take care of the dependency file and the build list
+but not the dependency or distribution packages themselves, therefore:
 
 !!! example "text/.gitignore"
 
-        tatin-packages-dev/
+        tatin-packages-dev/*
+        !/tatin-packages-dev//apl-dependencies.txt
+        !/tatin-packages-dev//apl-buildlist.json
+        /Dist
 
 Our project now looks like this:
 ``` hl_lines="2 3 6-8 16-24"
@@ -493,18 +540,24 @@ We see
 -   the API defined in a child folder of `APLSource/`
 -   TinyTest installed in `tatin-packages-dev/`
 
-### Build and publish
+
+### :dyalog-tatin-logo: Build and publish
+
+??? tip inline end "When to build"
+
+    If the Publish command finds no ZIP, it builds one.
+    You only actually need use the Build command to replace the ZIP.
+
+    A more elaborate package might need a Make script to, say,
+    copy assets or compile documentation before the ZIP is built.
 
 The Text package is ready to be built and published.
-
-The first time you publish a package, you can omit the build:
-the command will do it for you.
 ```
       ]TATIN.Publish text [tatin-test]
 ```
 
 
-## Translate
+## Translate :fontawesome-solid-right-left: :fontawesome-solid-earth-asia:
 
 ??? abstract "For a string, return from a dictionary its equivalent in another language."
 
@@ -513,11 +566,13 @@ the command will do it for you.
     hier
     ```
 
-1.  Create the Cider project.
+:fontawesome-brands-github: [Translate](https://github.com/5jt/translate)
 
-1.  Create the APL source files in `APLSource/`.
+1.  :dyalog-cider-logo: Create the Cider project.
 
-1.  **Initialise as a Tatin package**
+1.  :apl-apl-logo: Create the APL source files in `APLSource/`.
+
+1.  :dyalog-tatin-logo: **Initialise as a Tatin package**
 
     -   The documentation for Translate is in a variable `help`.
     -   The APL source files use array notation.
@@ -532,7 +587,7 @@ the command will do it for you.
         minimumAplVersion: "20.0",
         ```
 
-1.  **Install the dependencies**
+1.  :dyalog-cider-logo: **Install the dependencies**
 
     Translate depends on Text and, in development, on TinyTest.
 
@@ -558,29 +613,37 @@ the command will do it for you.
           ]CIDER.AddTatinDependency sjt-tinytest -development
     ```
 
-    Use `.gitignore` to exclude the dependency folders from Git version control.
+    Use `.gitignore` to exclude the dependency and distribution folders from version control.
 
     ??? example "translate/.gitignore"
 
-            tatin-packages*/
+            tatin-packages-dev/*
+            !/tatin-packages-dev//apl-dependencies.txt
+            !/tatin-packages-dev//apl-buildlist.json
+            /Dist
 
 
-1.  Create the public API: `DEBUG`, `dictionary`, `help`, and `text`.
+1.  :apl-apl-logo: Create the public API: `DEBUG`, `dictionary`, `help`, and `text`.
 
-1.  Build and publish the package.
+1.  :dyalog-tatin-logo: Build and publish the package.
 
               ]TATIN.Publish translate [tatin-test]
 
     The ZIP is made and published to the Test server.
 
 
-## NiceTime
+## NiceTime :fontawesome-solid-user: :fontawesome-solid-clock-rotate-left:
 
-1.  Create the Cider project.
+!!! abstract "Take a timestamp and return a text string describing the offset from the present."
 
-1.  Create the APL source files in `APLSource/`.
 
-1.  **Initialise as a Tatin package**
+:fontawesome-brands-github: [NiceTime](https://github.com/5jt/nicetime)
+
+1.  :dyalog-cider-logo: Create the Cider project.
+
+1.  :apl-apl-logo: Create the APL source files in `APLSource/`.
+
+1.  :dyalog-tatin-logo: **Initialise as a Tatin package**
 
     -   The documentation for NiceTime is in the repo README.
     -   The namespace has an initialisation function `init` that writes `dictionary` into Translate.
@@ -596,7 +659,7 @@ the command will do it for you.
         minimumAplVersion: "20.0",
         ```
 
-1.  **Install the dependencies**
+1.  :dyalog-cider-logo: **Install the dependencies**
 
     NiceTime depends on Translate and, in development, on TinyTest.
 
@@ -622,16 +685,18 @@ the command will do it for you.
 
     Translate itself depends on Text, which Cider therefore also installs.
 
-    Use `.gitignore` to exclude the dependency folders from Git version control.
+    Use `.gitignore` to exclude the dependency and distribution folders from Git version control.
 
     ??? example "nicetime/.gitignore"
 
-            tatin-packages*/
+            tatin-packages-dev/*
+            !/tatin-packages-dev//apl-dependencies.txt
+            !/tatin-packages-dev//apl-buildlist.json
+            Dist/
 
+1.  :apl-apl-logo: Create the public API: `sundayStart` (not yet implemented) and `was`.
 
-1.  Create the public API: `sundayStart` (not yet implemented) and `was`.
-
-1.  Build and publish the package.
+1.  :dyalog-tatin-logo: Build and publish the package.
 
               ]TATIN.Publish nicetime [tatin-test]
 
