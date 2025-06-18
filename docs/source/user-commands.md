@@ -152,7 +152,7 @@ Cider prints the content of its global config file to the session.
 
 ## :fontawesome-solid-terminal: Create project
 
-    ]CIDER.CreateProject [path [space] ]
+    ]CIDER.CreateProject [path] [space]
 
 Where
 
